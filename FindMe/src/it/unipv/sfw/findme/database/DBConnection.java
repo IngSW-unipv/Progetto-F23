@@ -21,7 +21,7 @@ public class DBConnection {
 		try {
 			Properties config= new Properties();
 			FileInputStream fis;
-			fis = new FileInputStream("Property/config.properties");
+			fis = new FileInputStream("Resources/Property/config.properties");
 			config.load(fis);
 			username=config.getProperty(PROPERTYNAME);
 			password=config.getProperty(PROPERTYPSW);

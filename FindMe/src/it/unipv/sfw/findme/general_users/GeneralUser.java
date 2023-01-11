@@ -1,6 +1,6 @@
 package it.unipv.sfw.findme.general_users;
 
-public abstract class GeneralUsers {
+public abstract class GeneralUser {
 	
 	protected String name;
 	protected String lastName;
@@ -9,7 +9,7 @@ public abstract class GeneralUsers {
 	protected String password;
 	
 	
-	public GeneralUsers(String name, String lastName, String iD, String email, String password) {
+	public GeneralUser(String name, String lastName, String iD, String email, String password) {
 		super();
 		this.name = name;
 		this.lastName = lastName;

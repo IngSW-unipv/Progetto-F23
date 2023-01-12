@@ -8,6 +8,12 @@ public class Professor extends GeneralUser {
 		super(name, lastName, iD, email, password);
 		// TODO Auto-generated constructor stub
 	}
+	
+	@Override
+	public void GUI(JFrame frame) {
+		// TODO Auto-generated method stub
+			
+	}
 
 	
 }

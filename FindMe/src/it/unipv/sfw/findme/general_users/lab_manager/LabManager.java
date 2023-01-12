@@ -9,6 +9,12 @@ public class LabManager extends GeneralUser{
 		// TODO Auto-generated constructor stub
 	}
 	
+	@Override
+	public void GUI(JFrame frame) {
+		// TODO Auto-generated method stub
+			
+	}
+	
 	
 
 }

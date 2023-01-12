@@ -1,0 +1,3 @@
+public enum UserType {
+	STUDENT, PROFESSOR, LAB_MANAGER, ADMINISTRATOR
+}

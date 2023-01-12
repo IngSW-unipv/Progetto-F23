@@ -70,6 +70,8 @@ public abstract class GeneralUser {
 	
 	
 	
+	public abstract void GUI(JFrame frame);
+	
 	
 
 }

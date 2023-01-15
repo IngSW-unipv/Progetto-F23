@@ -1,5 +1,6 @@
 package it.unipv.sfw.findme.groups;
 
+
 public class Group {
 	
 	
@@ -7,6 +8,7 @@ public class Group {
 	private String groupAdmin;
 	private final int studentsLimit=25;
 	private int studentsNumber;
+	GroupDAO dbg;
 
 	public Group(String ID, String admin) {
 		this.groupID=ID;
@@ -40,6 +42,20 @@ public class Group {
 
 	public int getStudentsLimit() {
 		return studentsLimit;
+	}
+	
+	public void addNewStudent(String emailOrID, Group group) {
+		
+		try {
+			
+			dbg.check(emailOrID, group);
+		}
+		catch(Exception e) {
+
+			return;
+			// da mettere parte della expection 
+		}
+		
 	}
 	
 	

@@ -9,12 +9,12 @@ public abstract class Rooms {
 	protected boolean outlets;
 	protected boolean disabledAccess;
 	
-	public Rooms(int seats, String code, String type, boolean lIM, boolean outlets, boolean disabledAccess) {
+	public Rooms(int seats, String code, String type, boolean LIM, boolean outlets, boolean disabledAccess) {
 		super();
 		this.seats = seats;
 		this.code = code;
 		this.type = type;
-		LIM = lIM;
+		this.LIM = LIM;
 		this.outlets = outlets;
 		this.disabledAccess = disabledAccess;
 	}
@@ -47,8 +47,8 @@ public abstract class Rooms {
 		return LIM;
 	}
 
-	public void setLIM(boolean lIM) {
-		LIM = lIM;
+	public void setLIM(boolean LIM) {
+		this.LIM = LIM;
 	}
 
 	public boolean isOutlets() {

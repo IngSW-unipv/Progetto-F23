@@ -1,7 +1,8 @@
-package it.unipv.sfw.findme.general_users.admin;
+package it.unipv.sfw.findme.users.admin;
 
-import it.unipv.sfw.findme.general_users.GeneralUser;
 import javax.swing.*;
+
+import it.unipv.sfw.findme.users.GeneralUser;
 
 public class Admin extends GeneralUser{
 	

@@ -1,4 +1,5 @@
-package it.unipv.sfw.findme.general_users;
+package it.unipv.sfw.findme.users;
+
 import javax.swing.*;  
 
 public abstract class GeneralUser {

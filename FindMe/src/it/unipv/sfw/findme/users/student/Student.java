@@ -1,7 +1,8 @@
-package it.unipv.sfw.findme.general_users.student;
+package it.unipv.sfw.findme.users.student;
 
-import it.unipv.sfw.findme.general_users.GeneralUser;
-import javax.swing.*;  
+import javax.swing.*;
+
+import it.unipv.sfw.findme.users.GeneralUser;  
 
 public class Student extends GeneralUser {
 

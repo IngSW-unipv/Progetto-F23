@@ -1,7 +1,8 @@
-package it.unipv.sfw.findme.general_users.lab_manager;
+package it.unipv.sfw.findme.users.lab_manager;
 
-import it.unipv.sfw.findme.general_users.GeneralUser;
-import javax.swing.*;  
+import javax.swing.*;
+
+import it.unipv.sfw.findme.users.GeneralUser;  
 
 public class LabManager extends GeneralUser{
 

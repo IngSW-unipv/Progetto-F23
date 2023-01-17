@@ -18,7 +18,7 @@ public class GroupDAO {
 	}
 	
 	
-	public void check(String emailOrID, Group group) {
+	public void check(Group group) {
 	/*	
 		Connection conn=DBConnection.connect();
 		String query="select User_Code, Email from users where User_Code=? or Email=?";

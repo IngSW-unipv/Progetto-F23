@@ -48,7 +48,7 @@ public class Group {
 		
 		try {
 			
-			dbg.check(emailOrID, group);
+			dbg.check(group);
 		}
 		catch(Exception e) {
 

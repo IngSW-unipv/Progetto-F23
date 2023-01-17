@@ -2,9 +2,9 @@ package it.unipv.sfw.findme.users.admin;
 
 import javax.swing.*;
 
-import it.unipv.sfw.findme.users.general_user.GeneralUser;
+import it.unipv.sfw.findme.users.general_user.Users;
 
-public class Admin extends GeneralUser{
+public class Admin extends Users{
 	
 	public Admin (String name, String lastName, String iD, String email, String password) {
 		super(name, lastName, iD, email, password);

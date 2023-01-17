@@ -2,7 +2,7 @@ package it.unipv.sfw.findme.users.general_user;
 
 import javax.swing.*;  
 
-public abstract class GeneralUser {
+public abstract class Users {
 	
 	protected String name;
 	protected String lastName;
@@ -11,7 +11,7 @@ public abstract class GeneralUser {
 	protected String password;
 	
 	
-	public GeneralUser(String name, String lastName, String iD, String email, String password) {
+	public Users(String name, String lastName, String iD, String email, String password) {
 		super();
 		this.name = name;
 		this.lastName = lastName;

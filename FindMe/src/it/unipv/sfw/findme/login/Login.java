@@ -5,7 +5,7 @@ import java.io.*;
 import java.sql.*;
 import java.util.*;
 import it.unipv.sfw.findme.database.DBConnection;
-import it.unipv.sfw.findme.users.general_user.GeneralUser;
+import it.unipv.sfw.findme.users.general_user.Users;
 
 public class Login {
 
@@ -47,7 +47,7 @@ public class Login {
 			Properties config= new Properties();
 			FileInputStream fis=new FileInputStream("Resources/Property/config.properties");
 			config.load(fis);
-			GeneralUser tempUser=selectType(name, lastName, Integer.toString(ID), email, passwordString, type, config);
+			Users tempUser=selectType(name, lastName, Integer.toString(ID), email, passwordString, type, config);
 			tempUser.GUI(frame);
 		} catch (Exception e) {
 			e.printStackTrace();
@@ -55,9 +55,9 @@ public class Login {
 		}
 	}
 
-	public GeneralUser selectType(String name, String lastName, String ID, String email, String password, String user, Properties property) throws Exception{
+	public Users selectType(String name, String lastName, String ID, String email, String password, String user, Properties property) throws Exception{
 		String userClassName=property.getProperty(user);
-		GeneralUser r=(GeneralUser)Class.forName(userClassName).getDeclaredConstructor(String.class, String.class, String.class, String.class, String.class).newInstance(name, lastName, ID, email, password);
+		Users r=(Users)Class.forName(userClassName).getDeclaredConstructor(String.class, String.class, String.class, String.class, String.class).newInstance(name, lastName, ID, email, password);
 		return r;
 	}
 }

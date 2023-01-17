@@ -2,7 +2,7 @@ package it.unipv.sfw.findme.users.professor;
 
 import javax.swing.*;
 
-import it.unipv.sfw.findme.users.GeneralUser;  
+import it.unipv.sfw.findme.users.general_user.GeneralUser;  
 
 public class Professor extends GeneralUser {
 

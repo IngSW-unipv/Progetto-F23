@@ -5,7 +5,7 @@ import java.io.*;
 import java.sql.*;
 import java.util.*;
 import it.unipv.sfw.findme.database.DBConnection;
-import it.unipv.sfw.findme.users.GeneralUser;
+import it.unipv.sfw.findme.users.general_user.GeneralUser;
 
 public class Login {
 

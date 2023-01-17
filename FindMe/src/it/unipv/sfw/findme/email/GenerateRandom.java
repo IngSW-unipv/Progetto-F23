@@ -7,7 +7,7 @@ public class GenerateRandom {//codice di verifica lo genero con un random tra 10
 	
 	public GenerateRandom() {
 		Random r=new Random();
-		this.number=r.nextInt(1000,9999);
+		this.number=1000 + r.nextInt(9000);
 		
 	}
 	

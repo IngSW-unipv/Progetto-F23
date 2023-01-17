@@ -3,7 +3,7 @@ package it.unipv.sfw.findme.users.general_user;
 	import java.awt.*;
 	import javax.swing.*;
 
-	public class UserGUI extends JFrame{
+	public class UserGUI extends JFrame {
 		
 		protected Users user;
 		protected JPanel secondPanel=new JPanel();

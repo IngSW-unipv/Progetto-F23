@@ -95,3 +95,4 @@ class  Auth extends Authenticator{
 		return new PasswordAuthentication(this.accountEmail, this.accountPassword);
 	}
 
+}

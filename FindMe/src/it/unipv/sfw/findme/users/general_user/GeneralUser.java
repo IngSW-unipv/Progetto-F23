@@ -1,4 +1,4 @@
-package it.unipv.sfw.findme.users;
+package it.unipv.sfw.findme.users.general_user;
 
 import javax.swing.*;  
 

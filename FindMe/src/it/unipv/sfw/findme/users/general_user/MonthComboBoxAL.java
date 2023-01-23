@@ -5,7 +5,8 @@ import java.awt.event.ActionListener;
 import javax.swing.DefaultComboBoxModel;
 import javax.swing.JComboBox;
 
-import ENUM.MonthType;
+import it.unipv.sfw.findme.enums.MonthType;
+
 
 public class MonthComboBoxAL implements ActionListener{
 	private JComboBox<String> monthsBox;

@@ -11,6 +11,8 @@ import javax.swing.JComboBox;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
 
+import it.unipv.sfw.findme.mytimer.MyTimer;
+
 
 public class FindPanel extends JPanel{
 	private boolean leapYear;

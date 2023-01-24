@@ -1,6 +1,8 @@
 package it.unipv.sfw.findme.groups;
 
 
+import it.unipv.sfw.findme.email.EmailTemplate;
+import it.unipv.sfw.findme.exceptions.ExceptionFrame;
 public class Group {
 	
 	
@@ -46,17 +48,32 @@ public class Group {
 	
 	public void addNewStudent(String emailOrID, Group group) {
 		
+		String email= "";
 		try {
 			
-			dbg.check(group);
+			email=dbg.check(emailOrID,group);
+			
 		}
 		catch(Exception e) {
 
+			new ExceptionFrame("\u274C User Already invited to the Group!");
+			e.printStackTrace();
 			return;
-			// da mettere parte della expection 
+		}
+		
+		try {
+		EmailTemplate eTemp=new EmailTemplate(email, "Notification", "You have been invited by "+group.getGroupAdmin()+" to join the Group: "+group.getGroupID());
+		eTemp.start();
+		}
+		
+		catch(Exception ex) {
+			
+			
 		}
 		
 	}
+	
+
 	
 	
 	

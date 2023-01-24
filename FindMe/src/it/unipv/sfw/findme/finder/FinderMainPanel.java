@@ -1,24 +1,21 @@
 package it.unipv.sfw.findme.finder;
 
-import java.awt.Color;
-import java.awt.Dimension;
-import java.awt.Font;
-import java.awt.GridBagConstraints;
-import java.awt.GridBagLayout;
-import java.awt.Insets;
-import java.awt.event.ActionEvent;
+import java.awt.*;
 import java.awt.event.ActionListener;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.LinkedList;
 import java.util.List;
-
-import javax.swing.JButton;
-import javax.swing.JList;
-import javax.swing.JPanel;
-import javax.swing.JScrollPane;
-import javax.swing.SwingUtilities;
+import javax.swing.*;
 import javax.swing.border.LineBorder;
+
+import it.unipv.sfw.findme.booking.Booking;
+import it.unipv.sfw.findme.booking.ConfirmBookigPanel;
+import it.unipv.sfw.findme.finder.filters.FilterCheckBox;
+import it.unipv.sfw.findme.finder.filters.FilterRoomType;
+import it.unipv.sfw.findme.finder.filters.FilterSeatsNumber;
+import it.unipv.sfw.findme.users.general_user.UserGUI;
+import it.unipv.sfw.findme.users.general_user.Users;
 
 public class FinderMainPanel extends JPanel{
 

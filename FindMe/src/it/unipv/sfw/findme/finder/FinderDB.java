@@ -12,8 +12,10 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Properties;
 
+import it.unipv.sfw.findme.booking.Booking;
 import it.unipv.sfw.findme.database.DBConnection;
 import it.unipv.sfw.findme.mytimer.Months;
+import it.unipv.sfw.findme.rooms.RoomLoader;
 import it.unipv.sfw.findme.rooms.Rooms;
 
 public class FinderDB {

@@ -4,6 +4,8 @@ import java.util.List;
 
 import javax.swing.JCheckBox;
 
+import it.unipv.sfw.findme.booking.Booking;
+
 public class FilterCheckBox extends JCheckBox implements Filterable{
 
 	protected String identifier;

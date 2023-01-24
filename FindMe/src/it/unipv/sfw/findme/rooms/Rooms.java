@@ -1,6 +1,11 @@
 package it.unipv.sfw.findme.rooms;
 
-public abstract class Rooms {
+import java.util.HashMap;
+
+import it.unipv.sfw.findme.booking.Booking;
+
+
+public abstract class Rooms implements Bookable, Comparable<Rooms>{
 	
 	protected int seats;
 	protected String code;
@@ -8,17 +13,23 @@ public abstract class Rooms {
 	protected boolean LIM;
 	protected boolean outlets;
 	protected boolean disabledAccess;
+	protected boolean soloBookable;
+	protected HashMap<String, Booking> availability;
+	protected int maxOccupiedSeats;
 	
-	public Rooms(int seats, String code, String type, boolean LIM, boolean outlets, boolean disabledAccess) {
+	public Rooms(String code, String type, String seats, String LIM, String outlets, String disabledAccess) {
 		super();
-		this.seats = seats;
-		this.code = code;
-		this.type = type;
-		this.LIM = LIM;
-		this.outlets = outlets;
-		this.disabledAccess = disabledAccess;
+		this.seats=Integer.parseInt(seats);
+		this.code=code;
+		this.type=type;
+		this.LIM=Boolean.parseBoolean(LIM);
+		this.outlets=Boolean.parseBoolean(outlets);
+		this.disabledAccess=Boolean.parseBoolean(disabledAccess);
+		this.availability=new HashMap<String, Booking>();
+		this.maxOccupiedSeats=this.seats/2;
 	}
 
+	
 	public int getSeats() {
 		return seats;
 	}
@@ -54,6 +65,10 @@ public abstract class Rooms {
 	public boolean isOutlets() {
 		return outlets;
 	}
+	
+	public boolean isSoloBookable() {
+		return soloBookable;
+	}
 
 	public void setOutlets(boolean outlets) {
 		this.outlets = outlets;
@@ -65,8 +80,27 @@ public abstract class Rooms {
 
 	public void setDisabledAccess(boolean disabledAccess) {
 		this.disabledAccess = disabledAccess;
-	} 
+	}
 	
-	
+	public int getOccupiedSeats() {
+		return this.maxOccupiedSeats;
+	}
 
+	public HashMap<String, Booking> getAvailability(){
+		return this.availability;
+	}
+
+	public void setAvailability(String timeSpan, Booking availability) {
+		this.availability.put(timeSpan, availability);
+	}
+	
+	@Override
+	public int compareTo(Rooms o) {
+		return this.getCode().compareTo(o.getCode());
+	}
+	
+	@Override
+	public String toString() {
+		return this.code;
+	}
 }

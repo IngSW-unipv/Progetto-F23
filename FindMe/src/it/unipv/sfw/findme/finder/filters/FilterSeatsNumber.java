@@ -3,6 +3,8 @@ package it.unipv.sfw.findme.finder.filters;
 import java.util.ArrayList;
 import java.util.List;
 
+import it.unipv.sfw.findme.booking.Booking;
+
 
 public class FilterSeatsNumber extends FilterCheckBox{
 	

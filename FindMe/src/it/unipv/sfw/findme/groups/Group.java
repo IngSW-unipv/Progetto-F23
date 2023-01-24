@@ -5,12 +5,10 @@ import it.unipv.sfw.findme.email.EmailTemplate;
 import it.unipv.sfw.findme.exceptions.ExceptionFrame;
 public class Group {
 	
-	
 	private String groupID;
 	private String groupAdmin;
 	private final int studentsLimit=25;
 	private int studentsNumber;
-	GroupDAO dbg;
 
 	public Group(String ID, String admin) {
 		this.groupID=ID;
@@ -47,15 +45,13 @@ public class Group {
 	}
 	
 	public void addNewStudent(String emailOrID, Group group) {
-		
-		String email= "";
+		GroupDAO dao=new GroupDAO();
+		String email;
 		try {
-			
-			email=dbg.check(emailOrID,group);
+			email=dao.check(emailOrID,group);
 			
 		}
 		catch(Exception e) {
-
 			new ExceptionFrame("\u274C User Already invited to the Group!");
 			e.printStackTrace();
 			return;
@@ -67,15 +63,8 @@ public class Group {
 		}
 		
 		catch(Exception ex) {
-			
-			
+
 		}
 		
 	}
-	
-
-	
-	
-	
-
 }

@@ -1,22 +1,10 @@
 package it.unipv.sfw.findme.groups;
 
 
-import java.io.*;
 import java.sql.*;
-import java.util.*;
-
 import it.unipv.sfw.findme.database.DBConnection;
 
-
 public class GroupDAO {
-
-	Connection conn;
-	
-	public GroupDAO (){
-		
-		
-	}
-	
 	
 	public String check(String emailOrID,Group group) throws Exception  {
 		

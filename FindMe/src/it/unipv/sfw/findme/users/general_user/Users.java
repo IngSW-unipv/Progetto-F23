@@ -12,17 +12,19 @@ public abstract class Users {
 	protected String ID;
 	protected String email;
 	protected String password;
+	protected String type;
 	protected List<Notification> notifications;
 	
 	
-	public Users(String name, String lastName, String iD, String email, String password) {
+	public Users(String name, String lastName, String ID, String email, String password, String type) {
 		super();
 		this.notifications=new ArrayList();
 		this.name = name;
 		this.lastName = lastName;
-		this.ID = iD;
+		this.ID = ID;
 		this.email = email;
 		this.password = password;
+		this.type= type;
 	}
 	
 	public abstract void GUI(LoginGUI frame);

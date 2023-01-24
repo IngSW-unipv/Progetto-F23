@@ -8,8 +8,8 @@ import it.unipv.sfw.findme.users.general_user.Users;
 
 public class Professor extends Users {
 
-	public Professor(String name, String lastName, String iD, String email, String password) {
-		super(name, lastName, iD, email, password);
+	public Professor(String name, String lastName, String ID, String email, String password, String type) {
+		super(name, lastName, ID, email, password, type);
 		// TODO Auto-generated constructor stub
 	}
 

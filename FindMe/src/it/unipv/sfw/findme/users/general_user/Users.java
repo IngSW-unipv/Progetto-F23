@@ -1,6 +1,9 @@
 package it.unipv.sfw.findme.users.general_user;
 
-import javax.swing.*;  
+import java.util.ArrayList;
+import java.util.List;
+import javax.swing.*;
+import it.unipv.sfw.findme.login.LoginGUI;
 
 public abstract class Users {
 	
@@ -9,15 +12,35 @@ public abstract class Users {
 	protected String ID;
 	protected String email;
 	protected String password;
+	protected List<Notification> notifications;
 	
 	
 	public Users(String name, String lastName, String iD, String email, String password) {
 		super();
+		this.notifications=new ArrayList();
 		this.name = name;
 		this.lastName = lastName;
 		this.ID = iD;
 		this.email = email;
 		this.password = password;
+	}
+	
+	public abstract void GUI(LoginGUI frame);
+	
+	public abstract JButton checkNotifications();
+	
+	public abstract JPanel getMainPanel(UserGUI gui);
+	
+	public abstract JPanel book(Object[] objects, UserGUI frame);
+	
+	public abstract JPanel notificationPanel(Users user, UserGUI frame);
+	
+	public void loadNotifications(Notification notification) {
+		this.notifications.add(notification);
+	}
+	
+	public List<Notification> getNotifications(){
+		return this.notifications;
 	}
 
 
@@ -68,12 +91,6 @@ public abstract class Users {
 
 	public void setPassword(String password) {
 		this.password = password;
-	}
-	
-	
-	
-	public abstract void GUI(JFrame frame);
-	
-	
+	}	
 
 }

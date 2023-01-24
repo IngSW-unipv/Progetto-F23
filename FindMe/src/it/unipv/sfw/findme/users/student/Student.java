@@ -2,6 +2,8 @@ package it.unipv.sfw.findme.users.student;
 
 import javax.swing.*;
 
+import it.unipv.sfw.findme.login.LoginGUI;
+import it.unipv.sfw.findme.users.general_user.UserGUI;
 import it.unipv.sfw.findme.users.general_user.Users;  
 
 public class Student extends Users {
@@ -12,9 +14,35 @@ public class Student extends Users {
 	}
 
 	@Override
-	public void GUI(JFrame frame) {
+	public void GUI(LoginGUI frame) {
 		// TODO Auto-generated method stub
 		
 	}
 
+	@Override
+	public JButton checkNotifications() {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public JPanel getMainPanel(UserGUI gui) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public JPanel book(Object[] objects, UserGUI frame) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public JPanel notificationPanel(Users user, UserGUI frame) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+
+	
 }

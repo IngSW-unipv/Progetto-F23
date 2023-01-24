@@ -13,6 +13,7 @@ import it.unipv.sfw.findme.users.general_user.UserGUI;
 import it.unipv.sfw.findme.users.general_user.Users;
 import it.unipv.sfw.findme.database.DBConnection;
 import it.unipv.sfw.findme.exceptions.ExceptionFrame;
+import it.unipv.sfw.findme.mytimer.DateHolder;
 import it.unipv.sfw.findme.rooms.Rooms;
 
 public class ConfirmBookigPanel extends JPanel{

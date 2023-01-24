@@ -14,6 +14,7 @@ import java.util.Properties;
 
 import it.unipv.sfw.findme.booking.Booking;
 import it.unipv.sfw.findme.database.DBConnection;
+import it.unipv.sfw.findme.mytimer.DateHolder;
 import it.unipv.sfw.findme.mytimer.Months;
 import it.unipv.sfw.findme.rooms.RoomLoader;
 import it.unipv.sfw.findme.rooms.Rooms;

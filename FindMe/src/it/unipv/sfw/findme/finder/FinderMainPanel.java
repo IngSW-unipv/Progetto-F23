@@ -1,6 +1,7 @@
 package it.unipv.sfw.findme.finder;
 
 import java.awt.*;
+import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -8,7 +9,6 @@ import java.util.LinkedList;
 import java.util.List;
 import javax.swing.*;
 import javax.swing.border.LineBorder;
-
 import it.unipv.sfw.findme.booking.Booking;
 import it.unipv.sfw.findme.booking.ConfirmBookigPanel;
 import it.unipv.sfw.findme.finder.filters.FilterCheckBox;

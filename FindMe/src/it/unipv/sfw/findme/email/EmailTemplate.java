@@ -12,6 +12,8 @@ import javax.mail.internet.AddressException;
 import javax.mail.internet.InternetAddress;
 import javax.mail.internet.MimeMessage;
 
+import it.unipv.sfw.findme.exceptions.ExceptionFrame;
+
 
 
 public class EmailTemplate extends Thread{

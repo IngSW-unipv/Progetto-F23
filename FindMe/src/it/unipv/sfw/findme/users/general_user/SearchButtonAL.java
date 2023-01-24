@@ -5,6 +5,8 @@ import java.awt.event.ActionListener;
 import javax.swing.JComboBox;
 
 import it.unipv.sfw.findme.exceptions.ExceptionFrame;
+import it.unipv.sfw.findme.finder.FinderDB;
+import it.unipv.sfw.findme.finder.FinderMainPanel;
 
 public class SearchButtonAL implements ActionListener{
 

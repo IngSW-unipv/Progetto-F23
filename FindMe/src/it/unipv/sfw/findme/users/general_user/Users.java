@@ -1,6 +1,7 @@
 package it.unipv.sfw.findme.users.general_user;
 
 import java.util.ArrayList;
+import it.unipv.sfw.findme.notifications.*;
 import java.util.List;
 import javax.swing.*;
 import it.unipv.sfw.findme.login.LoginGUI;

@@ -61,4 +61,19 @@ package it.unipv.sfw.findme.users.general_user;
 			return user;
 		}
 		
+
+		public JPanel downPanel() {
+			
+			JPanel p= new JPanel();
+			p.setLayout(new BorderLayout());
+			p.setBackground(new Color(77, 77, 77));
+			JLabel down = new JLabel("For any problem, please contact: findme.verify@outlook.com");
+			down.setFont(new Font("Comic Sans MS", Font.PLAIN,12));
+			down.setForeground(Color.white);
+			p.add(down, BorderLayout.EAST);
+			
+			return p;
+			
+		}
+		
 }

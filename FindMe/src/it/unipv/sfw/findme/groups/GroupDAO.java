@@ -8,6 +8,10 @@ import it.unipv.sfw.findme.database.DBConnection;
 import it.unipv.sfw.findme.users.student.Students;
 
 public class GroupDAO {
+	
+	public GroupDAO(){
+		
+		}
 
 	public void insertGroup(Group group) throws Exception {
 		Connection conn=DBConnection.connect();

@@ -12,6 +12,7 @@ import javax.swing.JButton;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
 
+
 import it.unipv.sfw.findme.login.LoginGUI;
 import it.unipv.sfw.findme.users.general_user.UserGUI;
 
@@ -22,7 +23,7 @@ public class LabManagerMainPanel extends JPanel {
 		setLayout (new GridBagLayout());
 		GridBagConstraints c=new GridBagConstraints();
 
-		setBackground(new Color(145,0,0));
+setBackground(new Color(145,0,0));
 		
 		c.anchor = GridBagConstraints.FIRST_LINE_START;
 		JLabel Label=new JLabel("PROFILE");
@@ -32,7 +33,7 @@ public class LabManagerMainPanel extends JPanel {
 		c.gridx=0;
 		c.gridy=0;
 		add(Label, c);
-		//
+		
 		c.anchor = GridBagConstraints.FIRST_LINE_START;
 		JLabel LNameLabel=new JLabel("Name: ");
 		LNameLabel.setFont(new Font("Comic Sans MS", Font.BOLD,15));

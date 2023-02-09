@@ -1,5 +1,7 @@
 package it.unipv.sfw.findme.booking;
 
+
+
 import java.awt.*;
 import java.awt.event.*;
 import java.sql.Connection;
@@ -9,12 +11,14 @@ import java.sql.ResultSet;
 import java.util.ArrayList;
 import java.util.List;
 import javax.swing.*;
-import it.unipv.sfw.findme.users.general_user.UserGUI;
-import it.unipv.sfw.findme.users.general_user.Users;
+import javax.swing.border.LineBorder;
+
 import it.unipv.sfw.findme.database.DBConnection;
 import it.unipv.sfw.findme.exceptions.ExceptionFrame;
 import it.unipv.sfw.findme.mytimer.DateHolder;
 import it.unipv.sfw.findme.rooms.Rooms;
+import it.unipv.sfw.findme.users.general_user.UserGUI;
+import it.unipv.sfw.findme.users.general_user.Users;
 
 public class ConfirmBookigPanel extends JPanel{
 
@@ -28,11 +32,13 @@ public class ConfirmBookigPanel extends JPanel{
 		this.roomsList=roomsList;
 
 		Booking selectedBooking =this.roomsList.getSelectedValue();
+		
 		for(int i = 0; i< this.roomsList.getModel().getSize();i++){
 			if(this.roomsList.getModel().getElementAt(i).getRoom().getCode().equals(selectedBooking.getRoom().getCode())) {
 				this.possibleBookings.add(this.roomsList.getModel().getElementAt(i));
 			}
 		}
+
 		Rooms room=selectedBooking.getRoom();
 		String[][] roomDetails=new String[1][5];
 		String[] columnsNames=new String[]{"Room Code", "Max Capacity", "Equipped with LIM", "Equipped with Outlets", "Disabled-Friendly"};
@@ -43,13 +49,17 @@ public class ConfirmBookigPanel extends JPanel{
 		roomDetails[0][4]=Boolean.toString(room.isDisabledAccess());
 
 		setLayout (new BorderLayout());
+		setBackground(Color.white);
 
 		JPanel lowerPanel=new JPanel();
 		lowerPanel.setLayout (new GridBagLayout());
 		GridBagConstraints c=new GridBagConstraints();
+		lowerPanel.setBackground(Color.white);
 
 		JTable table=new JTable(roomDetails, columnsNames);
-		table.setRowSelectionAllowed(false);
+		table.setBackground(Color.white);
+		table.setFont(new Font("Comic Sans MS", Font.BOLD,15));
+		table.setForeground(new Color(145,0,0));
 		table.setCellSelectionEnabled(false);
 		table.setFocusable(false);
 		table.getTableHeader().setReorderingAllowed(false);
@@ -60,15 +70,24 @@ public class ConfirmBookigPanel extends JPanel{
 		fullTable.setPreferredSize(new Dimension(d.width,table.getRowHeight()*(4)));
 		fullTable.setBorder(BorderFactory.createEmptyBorder());
 		add(fullTable, BorderLayout.NORTH);
-
+		
+		
 		this.countSeats=new JLabel("Select to see Bookable Seats");
-		c.gridx=1;
-		c.gridy=2;
-		lowerPanel.add(this.countSeats, c);
-		JLabel timeSlot=new JLabel("Select your preferred Time-Slot: ");
+		countSeats.setFont(new Font("Comic Sans MS", Font.BOLD,15));
+		countSeats.setForeground(new Color(145,0,0));
 		c.gridx=0;
-		c.gridy=1;
+		c.gridy=2;
+		c.insets= new Insets(0,0,50,0);
+		lowerPanel.add(this.countSeats, c);
+		//
+		c.anchor = GridBagConstraints.PAGE_START;
+		JLabel timeSlot=new JLabel("Select your preferred Time-Slot: ");
+		timeSlot.setFont(new Font("Comic Sans MS", Font.BOLD,15));
+		timeSlot.setForeground(new Color(145,0,0));
+		c.gridx=0;
+		c.gridy=0;
 		lowerPanel.add(timeSlot, c);
+		//
 		JList<Booking> list=new JList(this.possibleBookings.toArray());
 		list.setSelectionMode(ListSelectionModel.SINGLE_SELECTION);
 		list.addMouseListener(new MouseAdapter() {
@@ -104,7 +123,8 @@ public class ConfirmBookigPanel extends JPanel{
 			}
 		});		
 		JScrollPane listScroller = new JScrollPane(list);
-		c.gridx=1;
+		listScroller.setBorder(new LineBorder(new Color(145,0,0),2));
+		c.gridx=0;
 		c.gridy=1;
 		lowerPanel.add(listScroller, c);
 		JButton bookingButton=new JButton("Proceed with Booking");
@@ -112,6 +132,17 @@ public class ConfirmBookigPanel extends JPanel{
 
 			@Override
 			public void actionPerformed(ActionEvent e) {
+				
+				try {
+				if(list.getSelectedValue()==null) {
+					throw new IllegalArgumentException();
+				}
+				}catch(IllegalArgumentException ex) {
+					new ExceptionFrame("No Time Span Selected");
+					return;
+				}
+				
+				
 				if(maxed==false) {
 				frame.removePanel();
 				frame.addSecondPanel(user.book(list.getSelectedValues(), frame));
@@ -124,13 +155,35 @@ public class ConfirmBookigPanel extends JPanel{
 			}
 
 		});
+		bookingButton.setFont(new Font("Comic Sans MS", Font.PLAIN,15));
+		bookingButton.setForeground(Color.WHITE);
+		bookingButton.setBackground(new Color(145,0,0));
+		
+		bookingButton.setOpaque(true);
+		bookingButton.setBorderPainted(false);
 		c.gridx=2;
 		c.gridy=1;
 		lowerPanel.add(bookingButton, c);
-		JButton backButton=new JButton("Back");
-		c.gridx=3;
+		//
+	/*	JButton backButton=new JButton("Back");
+		backButton.setFont(new Font("Comic Sans MS", Font.PLAIN,15));
+		backButton.setForeground(Color.WHITE);
+		backButton.setBackground(new Color(145,0,0));
+		
+		backButton.setOpaque(true);
+		backButton.setBorderPainted(false);
+		backButton.addActionListener(new ActionListener()
+		{
+			@Override
+			public void actionPerformed(ActionEvent e) {
+				FinderMainPanel l=new FinderMainPanel();
+				frame.dispose();
+			}
+		});
+		c.insets= new Insets(50,0,0,0);
+		c.gridx=2;
 		c.gridy=1;
-		lowerPanel.add(backButton, c);
+		lowerPanel.add(backButton, c);*/
 
 		add(lowerPanel, BorderLayout.CENTER);
 

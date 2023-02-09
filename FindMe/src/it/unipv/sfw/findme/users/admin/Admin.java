@@ -8,6 +8,8 @@ import java.sql.Statement;
 import java.util.Properties;
 import javax.swing.*;
 
+import it.unipv.sfw.findme.courses.Course;
+import it.unipv.sfw.findme.courses.CourseDAO;
 import it.unipv.sfw.findme.database.DBConnection;
 import it.unipv.sfw.findme.login.LoginGUI;
 import it.unipv.sfw.findme.rooms.Rooms;

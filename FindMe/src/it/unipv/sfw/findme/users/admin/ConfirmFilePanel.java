@@ -14,6 +14,12 @@ import javax.swing.JLabel;
 import javax.swing.JPanel;
 import javax.swing.JTable;
 
+import it.unipv.sfw.findme.database.CSVtoDB;
+import it.unipv.sfw.findme.database.DBConnection;
+import it.unipv.sfw.findme.exceptions.ExceptionFrame;
+import it.unipv.sfw.findme.users.general_user.NewPanelListener;
+import it.unipv.sfw.findme.users.general_user.UserGUI;
+
 
 public class ConfirmFilePanel extends JPanel{
 	

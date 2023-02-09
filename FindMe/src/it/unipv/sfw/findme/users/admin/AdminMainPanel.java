@@ -7,16 +7,11 @@ import java.awt.GridBagLayout;
 import java.awt.Insets;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
-
 import javax.swing.JButton;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
-
-import Login.LoginGUI;
-import Users.Admin.AddRoomPanel;
-import Users.Admin.EditSemesterPanel;
-import Users.Admin.ViewCoursesPanel;
-import Users.GeneralUser.NewPanelListener;
+import it.unipv.sfw.findme.login.LoginGUI;
+import it.unipv.sfw.findme.users.general_user.NewPanelListener;
 import it.unipv.sfw.findme.users.general_user.UserGUI;
 
 

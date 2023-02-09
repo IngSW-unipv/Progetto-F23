@@ -8,6 +8,7 @@ import java.util.ArrayList;
 
 import it.unipv.sfw.findme.database.DBConnection;
 import it.unipv.sfw.findme.mytimer.DateHolder;
+import it.unipv.sfw.findme.rooms.BigRooms;
 import it.unipv.sfw.findme.users.general_user.Users;
 
 public class SoloBookingDAO {

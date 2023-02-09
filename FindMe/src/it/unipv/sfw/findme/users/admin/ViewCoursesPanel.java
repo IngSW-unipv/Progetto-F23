@@ -27,8 +27,10 @@ import javax.swing.table.TableColumnModel;
 import javax.swing.table.TableModel;
 import javax.swing.table.TableRowSorter;
 
+import it.unipv.sfw.findme.courses.Course;
 import it.unipv.sfw.findme.database.DBConnection;
 import it.unipv.sfw.findme.exceptions.ExceptionFrame;
+import it.unipv.sfw.findme.users.general_user.NewPanelListener;
 import it.unipv.sfw.findme.users.general_user.UserGUI;
 
 

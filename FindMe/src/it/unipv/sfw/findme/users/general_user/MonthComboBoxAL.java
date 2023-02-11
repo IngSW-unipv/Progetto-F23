@@ -30,12 +30,7 @@ public class MonthComboBoxAL implements ActionListener{
 		DefaultComboBoxModel<String> m=new DefaultComboBoxModel<String>(days);
 		this.daysSelect.setModel(m);
 	}
-	
-	//devo usare il FACTORY, per forzare la creazione di oggetti del dominio non sapendo a priori quale
-	//java reflection
-	//String className=System.getProperty("accounting.class.name");
-	//data una stringa che rappresenta il nome della classe da instanziare, mi permette di istanziarla
-	//Class.forName(className).newIstance(); metodo statico che accetta nome della classe e crea in memoria la classe
+
 	public void checkMonth(MonthType type, String tempMonth) {
 		if(tempMonth.equals("November") || tempMonth.equals("April") || tempMonth.equals("June") || tempMonth.equals("September")) {
 			this.type=MonthType.Month30;

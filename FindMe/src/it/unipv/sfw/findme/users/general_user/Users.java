@@ -16,18 +16,41 @@ public abstract class Users {
 	protected String type;
 	protected List<Notification> notifications;
 	
-	
 	public Users(String name, String lastName, String ID, String email, String password, String type) {
-		super();
+		this.name=name;
+		this.lastName=lastName;
+		this.ID=ID;
+		this.email=email;
+		this.password=password;
 		this.notifications=new ArrayList();
-		this.name = name;
-		this.lastName = lastName;
-		this.ID = ID;
-		this.email = email;
-		this.password = password;
 		this.type= type;
 	}
 	
+	public String getPassword() {
+		return this.password;
+	}
+	
+	public String getName() {
+		return this.name;
+	}
+	
+	public String getLastName() {
+		return this.lastName;
+	}
+	
+	public String getEmail() {
+		return this.email;
+	}
+	
+	public String getID() {
+		return this.ID;
+	}
+	
+	public String getType() {
+		return this.type;
+	}
+	
+	//da qua in poi non c'è
 	public abstract void GUI(LoginGUI frame);
 	
 	public abstract JButton checkNotifications();
@@ -45,55 +68,5 @@ public abstract class Users {
 	public List<Notification> getNotifications(){
 		return this.notifications;
 	}
-
-
-	public String getName() {
-		return name;
-	}
-
-
-	public void setName(String name) {
-		this.name = name;
-	}
-
-
-	public String getLastName() {
-		return lastName;
-	}
-
-
-	public void setLastName(String lastName) {
-		this.lastName = lastName;
-	}
-
-
-	public String getID() {
-		return ID;
-	}
-
-
-	public void setID(String iD) {
-		ID = iD;
-	}
-
-
-	public String getEmail() {
-		return email;
-	}
-
-
-	public void setEmail(String email) {
-		this.email = email;
-	}
-
-
-	public String getPassword() {
-		return password;
-	}
-
-
-	public void setPassword(String password) {
-		this.password = password;
-	}	
-
+	
 }

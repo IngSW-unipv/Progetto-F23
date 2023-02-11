@@ -2,12 +2,10 @@ package it.unipv.sfw.findme.users.lab_manager;
 
 import java.awt.BorderLayout;
 import java.awt.Color;
-
 import javax.swing.JLayeredPane;
-
-import Users.GeneralUser.UsersHeadPanel;
 import it.unipv.sfw.findme.users.general_user.UserGUI;
 import it.unipv.sfw.findme.users.general_user.Users;
+import it.unipv.sfw.findme.users.general_user.UsersHeadPanel;
 
 public class LabManagerGUI extends UserGUI{
 	

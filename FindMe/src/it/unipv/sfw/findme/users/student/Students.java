@@ -16,21 +16,16 @@ import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import javax.swing.*;
-
-import Groups.GroupsPanel;
-import Notifications.Notification;
-import Rooms.RoomDAO;
-import Users.Students.StudentNotificationPanel;
-import Users.Students.Students;
-import Users.Students.StudentsGUI;
-import Users.Students.StudentsMainPanel;
 import it.unipv.sfw.findme.booking.Booking;
 import it.unipv.sfw.findme.database.DBConnection;
 import it.unipv.sfw.findme.datemanager.DateHolder;
 import it.unipv.sfw.findme.exceptions.ExceptionFrame;
 import it.unipv.sfw.findme.groups.Group;
 import it.unipv.sfw.findme.groups.GroupDAO;
+import it.unipv.sfw.findme.groups.GroupsPanel;
 import it.unipv.sfw.findme.login.LoginGUI;
+import it.unipv.sfw.findme.notifications.Notification;
+import it.unipv.sfw.findme.rooms.RoomDAO;
 import it.unipv.sfw.findme.users.general_user.UserGUI;
 import it.unipv.sfw.findme.users.general_user.Users;  
 

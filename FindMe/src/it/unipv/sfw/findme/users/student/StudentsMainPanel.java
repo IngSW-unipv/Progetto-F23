@@ -13,6 +13,7 @@ import javax.swing.JButton;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
 
+import it.unipv.sfw.findme.groups.GroupsPanel;
 import it.unipv.sfw.findme.login.LoginGUI;
 import it.unipv.sfw.findme.users.admin.ViewCoursesPanel;
 import it.unipv.sfw.findme.users.general_user.UserGUI;

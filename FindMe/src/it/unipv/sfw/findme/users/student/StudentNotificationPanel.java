@@ -18,6 +18,9 @@ import javax.swing.JPanel;
 import javax.swing.JScrollPane;
 import it.unipv.sfw.findme.database.DBConnection;
 import it.unipv.sfw.findme.exceptions.ExceptionFrame;
+import it.unipv.sfw.findme.notifications.AcceptRejectFrame;
+import it.unipv.sfw.findme.notifications.GroupNotificationDAO;
+import it.unipv.sfw.findme.notifications.JoinGroupNotification;
 import it.unipv.sfw.findme.users.general_user.UserGUI;
 import it.unipv.sfw.findme.users.general_user.Users;
 

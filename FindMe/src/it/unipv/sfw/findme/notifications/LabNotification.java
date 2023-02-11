@@ -2,7 +2,6 @@ package it.unipv.sfw.findme.notifications;
 
 import java.sql.Date;
 
-
 public class LabNotification implements Notification{
 	
 	private String groupID;
@@ -85,5 +84,5 @@ public class LabNotification implements Notification{
 		
 		return "The Group: "+this.groupID+" requested to use the lab "+this.room+" the day "+this.date.toString()+" from "+this.startTime+" to "+this.endTime;
 	}
-
+	
 }

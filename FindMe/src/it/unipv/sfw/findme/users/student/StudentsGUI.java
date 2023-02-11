@@ -1,10 +1,9 @@
 package it.unipv.sfw.findme.users.student;
 
 import java.awt.BorderLayout;
-
 import javax.swing.JLayeredPane;
-
 import it.unipv.sfw.findme.users.general_user.UserGUI;
+import it.unipv.sfw.findme.users.general_user.UsersHeadPanel;
 
 
 public class StudentsGUI extends UserGUI{

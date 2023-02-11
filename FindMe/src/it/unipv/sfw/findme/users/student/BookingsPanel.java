@@ -14,12 +14,12 @@ import javax.swing.JScrollPane;
 import javax.swing.JTabbedPane;
 import javax.swing.ListSelectionModel;
 import javax.swing.border.LineBorder;
-
 import it.unipv.sfw.findme.booking.Booking;
 import it.unipv.sfw.findme.booking.RoomsBookingDAO;
 import it.unipv.sfw.findme.booking.SoloBookingDAO;
 import it.unipv.sfw.findme.exceptions.ExceptionFrame;
 import it.unipv.sfw.findme.users.general_user.UserGUI;
+import it.unipv.sfw.findme.users.lab_manager.LabBookingDAO;
 
 
 public class BookingsPanel extends JPanel{

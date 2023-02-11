@@ -1,5 +1,6 @@
-package it.unipv.sfw.findme.mytimer;
+package it.unipv.sfw.findme.datemanager;
 
+import java.sql.Date;
 
 public class DateHolder {
 	private static int day;
@@ -23,6 +24,10 @@ public class DateHolder {
 
 	public static int getYear() {
 		return year;
+	}
+	
+	public static Date getDate() {
+		return Date.valueOf(year+"-"+month+"-"+day);
 	}
 
 

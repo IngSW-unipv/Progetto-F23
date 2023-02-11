@@ -1,4 +1,4 @@
-package it.unipv.sfw.findme.mytimer;
+package it.unipv.sfw.findme.datemanager;
 
 import java.util.HashMap;
 

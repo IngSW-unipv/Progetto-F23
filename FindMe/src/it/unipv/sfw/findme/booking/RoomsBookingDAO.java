@@ -6,7 +6,7 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.util.ArrayList;
 import it.unipv.sfw.findme.database.DBConnection;
-import it.unipv.sfw.findme.mytimer.DateHolder;
+import it.unipv.sfw.findme.datemanager.DateHolder;
 import it.unipv.sfw.findme.rooms.BigRooms;
 import it.unipv.sfw.findme.users.general_user.Users;
 

@@ -26,11 +26,11 @@ import Users.Students.StudentsGUI;
 import Users.Students.StudentsMainPanel;
 import it.unipv.sfw.findme.booking.Booking;
 import it.unipv.sfw.findme.database.DBConnection;
+import it.unipv.sfw.findme.datemanager.DateHolder;
 import it.unipv.sfw.findme.exceptions.ExceptionFrame;
 import it.unipv.sfw.findme.groups.Group;
 import it.unipv.sfw.findme.groups.GroupDAO;
 import it.unipv.sfw.findme.login.LoginGUI;
-import it.unipv.sfw.findme.mytimer.DateHolder;
 import it.unipv.sfw.findme.users.general_user.UserGUI;
 import it.unipv.sfw.findme.users.general_user.Users;  
 

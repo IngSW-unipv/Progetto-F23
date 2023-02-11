@@ -3,10 +3,9 @@ package it.unipv.sfw.findme.finder.filters;
 import java.util.List;
 
 import javax.swing.JCheckBox;
-
 import it.unipv.sfw.findme.booking.Booking;
 
-public class FilterCheckBox extends JCheckBox implements Filterable{
+public abstract class FilterCheckBox extends JCheckBox implements Filterable{
 
 	protected String identifier;
 	protected String start;

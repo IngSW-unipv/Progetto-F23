@@ -2,8 +2,10 @@ package it.unipv.sfw.findme.finder;
 
 import java.io.FileInputStream;
 import java.sql.Connection;
+import java.sql.Date;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
+import java.sql.Statement;
 import java.time.DayOfWeek;
 import java.time.LocalDate;
 import java.util.ArrayList;
@@ -11,11 +13,12 @@ import java.util.Collections;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Properties;
-
 import it.unipv.sfw.findme.booking.Booking;
 import it.unipv.sfw.findme.database.DBConnection;
 import it.unipv.sfw.findme.mytimer.DateHolder;
 import it.unipv.sfw.findme.mytimer.Months;
+import it.unipv.sfw.findme.mytimer.MyTimer;
+import it.unipv.sfw.findme.rooms.RoomDAO;
 import it.unipv.sfw.findme.rooms.RoomLoader;
 import it.unipv.sfw.findme.rooms.Rooms;
 
@@ -24,17 +27,20 @@ public class FinderDB {
 	private List<Booking> free;
 
 
-	public FinderDB(int year, String month, int day, String start, String end) {
+	public FinderDB(int year, String month, int day, String start, String end) throws Exception {
 		this.free= new ArrayList<Booking>();
-		
+
 		int monthNumber=Months.getMonths().get(month);
 		DateHolder.DateHolder(day, monthNumber, year);
 		LocalDate myDate = LocalDate.of(year, monthNumber, day);
 		DayOfWeek dayOfWeek=myDate.getDayOfWeek();
 
+
+		semesterChceck(myDate, dayOfWeek.toString());
+
 		try {
-			RoomLoader load=new RoomLoader();
-			this.allRooms=load.getRooms();
+			RoomDAO dao=new RoomDAO();
+			this.allRooms=dao.selectAllRooms();
 
 		} catch (Exception e) {
 			e.printStackTrace();
@@ -61,20 +67,25 @@ public class FinderDB {
 
 					String query="(select Room, Start_Time, End_Time from schedule where Start_Time=? and End_Time=? and Day_Of_Week=?)\r\n"
 							+ "union\r\n"
-							+ "(select Room, Start_Time, End_Time from rooms_booking where Start_Time=? and End_Time=? and Locked='true' and (select dayname(rooms_booking.Date))=?)\r\n"
+							+ "(select Room, Start_Time, End_Time from rooms_booking where Start_Time=? and End_Time=? and Locked='true' and rooms_booking.Date=?)\r\n"
 							+ "union\r\n"
-							+ "(select Room, Start_Time, End_Time from lab_booking where Start_Time=? and End_Time=? and Locked='true' and (select dayname(lab_booking.Date))=?)";
+							+ "(select Room, Start_Time, End_Time from lab_booking where Start_Time=? and End_Time=? and Locked='true' and lab_booking.Date=?)\r\n"
+							+ "union\r\n"
+							+ "(select Room, Start_Time, End_Time from solo_booking where Start_Time=? and End_Time=? and Locked='true' and solo_booking.Date=?)";
 					PreparedStatement preparedStmt = conn.prepareStatement(query);
 
 					preparedStmt.setString(1, start);
 					preparedStmt.setString(2, end);
-					preparedStmt.setString(3, dayOfWeek.toString());
+					preparedStmt.setDate(3, Date.valueOf(myDate));
 					preparedStmt.setString(4, start);
 					preparedStmt.setString(5, end);
-					preparedStmt.setString(6, dayOfWeek.toString());
+					preparedStmt.setDate(6, Date.valueOf(myDate));
 					preparedStmt.setString(7, start);
 					preparedStmt.setString(8, end);
-					preparedStmt.setString(9, dayOfWeek.toString());
+					preparedStmt.setDate(9, Date.valueOf(myDate));
+					preparedStmt.setString(10, start);
+					preparedStmt.setString(11, end);
+					preparedStmt.setDate(12, Date.valueOf(myDate));
 					ResultSet result=preparedStmt.executeQuery();
 					while(result.next()) {
 						if(this.allRooms.containsKey(result.getString(1))==true) {
@@ -83,6 +94,7 @@ public class FinderDB {
 						}
 
 					}
+					conn.close();
 				}
 			}
 			checkAvailability(this.allRooms, endNumber, startNumber, loopCount, start, end);
@@ -127,6 +139,37 @@ public class FinderDB {
 
 	public List<Booking> getFreeRooms(){
 		return this.free;
+	}
+
+	public void semesterChceck(LocalDate myDate, String dayOfWeek) throws Exception {
+		Connection conn=DBConnection.connect();
+		String query="select * from semester";
+		Statement preparedStmt=conn.createStatement();
+		ResultSet result=preparedStmt.executeQuery(query);
+		result.next();
+
+		Date start=result.getDate(1);
+		Date end=result.getDate(2);
+		
+		
+		MyTimer currentTime=new MyTimer();
+		
+		
+		if(myDate.compareTo(currentTime.getDate().toLocalDate())<0) {
+			throw new Exception();
+		}
+
+		if(dayOfWeek.equals("SUNDAY")) {
+			throw new Exception();
+		}
+		
+		//System.out.println(myDate);
+		if(myDate.compareTo(start.toLocalDate())>0 && myDate.compareTo(end.toLocalDate())>0) {
+			
+			throw new Exception();
+		}
+		conn.close();
+
 	}
 
 }

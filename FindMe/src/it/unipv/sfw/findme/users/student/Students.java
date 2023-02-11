@@ -17,6 +17,13 @@ import java.util.HashMap;
 import java.util.List;
 import javax.swing.*;
 
+import Groups.GroupsPanel;
+import Notifications.Notification;
+import Rooms.RoomDAO;
+import Users.Students.StudentNotificationPanel;
+import Users.Students.Students;
+import Users.Students.StudentsGUI;
+import Users.Students.StudentsMainPanel;
 import it.unipv.sfw.findme.booking.Booking;
 import it.unipv.sfw.findme.database.DBConnection;
 import it.unipv.sfw.findme.exceptions.ExceptionFrame;
@@ -158,8 +165,8 @@ public class Students extends Users{
 			public void actionPerformed(ActionEvent e) {
 				Booking booking=(Booking)objects[0];
 				try {
-					RoomLoader rooms=new RoomLoader();
-					rooms.getRooms().get(booking.getRoom().getCode());
+					RoomDAO dao=new RoomDAO();
+					dao.selectAllRooms().get(booking.getRoom().getCode());
 					Group myGroup=(Group)goupsBox.getSelectedItem();
 					booking.getRoom().book(myGroup, new Booking(booking.getStartTime(), booking.getEndTime(), Date.valueOf(year+"-"+month+"-"+day), null, null, null, null));
 					frame.removePanel();
@@ -187,8 +194,8 @@ public class Students extends Users{
 			public void actionPerformed(ActionEvent e) {
 				Booking booking=(Booking)objects[0];
 				try {
-					RoomLoader rooms=new RoomLoader();
-					rooms.getRooms().get(booking.getRoom().getCode());
+					RoomDAO dao=new RoomDAO();
+					dao.selectAllRooms().get(booking.getRoom().getCode());
 					try {
 						booking.getRoom().soloBook(ID, new Booking(booking.getStartTime(), booking.getEndTime(), Date.valueOf(year+"-"+month+"-"+day), null, null, null, null));
 					}catch(IllegalAccessError notAllowed) {

@@ -3,8 +3,8 @@ package it.unipv.sfw.findme.finder.filters;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
-
 import it.unipv.sfw.findme.booking.Booking;
+import it.unipv.sfw.findme.rooms.RoomDAO;
 import it.unipv.sfw.findme.rooms.RoomLoader;
 import it.unipv.sfw.findme.rooms.Rooms;
 
@@ -23,7 +23,8 @@ public class FilterRoomType extends FilterCheckBox{
 		String[] temp;
 		HashMap<String, Rooms> uniRooms;
 		try {
-			uniRooms = new RoomLoader().getRooms();
+			RoomDAO dao=new RoomDAO();
+			uniRooms = dao.selectAllRooms();
 		for(Booking book: freeRooms) {
 			String code=book.getRoom().getCode();
 			Rooms room=uniRooms.get(code);

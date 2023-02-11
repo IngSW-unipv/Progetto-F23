@@ -12,6 +12,7 @@ import it.unipv.sfw.findme.courses.Course;
 import it.unipv.sfw.findme.courses.CourseDAO;
 import it.unipv.sfw.findme.database.DBConnection;
 import it.unipv.sfw.findme.login.LoginGUI;
+import it.unipv.sfw.findme.rooms.RoomDAO;
 import it.unipv.sfw.findme.rooms.Rooms;
 import it.unipv.sfw.findme.users.general_user.UserGUI;
 import it.unipv.sfw.findme.users.general_user.Users;

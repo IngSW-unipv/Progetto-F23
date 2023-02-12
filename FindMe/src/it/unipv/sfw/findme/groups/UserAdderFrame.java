@@ -15,6 +15,7 @@ import javax.swing.JLabel;
 import javax.swing.JList;
 import javax.swing.JTextField;
 
+
 import it.unipv.sfw.findme.exceptions.ExceptionFrame;
 import it.unipv.sfw.findme.users.general_user.UserGUI;
 import it.unipv.sfw.findme.users.general_user.Users;
@@ -106,4 +107,3 @@ class OkListener implements ActionListener{
 	}
 	
 }
-

@@ -20,12 +20,14 @@ import javax.swing.JScrollPane;
 import javax.swing.ListSelectionModel;
 import javax.swing.border.LineBorder;
 
+
 import it.unipv.sfw.findme.exceptions.ExceptionFrame;
 import it.unipv.sfw.findme.users.general_user.UserGUI;
 import it.unipv.sfw.findme.users.student.Students;
 
 public class UsersListFrame extends JFrame{
 	
+
 
 	public UsersListFrame(ArrayList<Students> studentsList, Students user, Group group, UserGUI studentsGUI) {
 		

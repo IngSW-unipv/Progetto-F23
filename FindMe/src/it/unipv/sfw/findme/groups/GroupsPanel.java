@@ -27,7 +27,6 @@ import it.unipv.sfw.findme.users.student.Students;
 
 
 public class GroupsPanel extends JPanel {
-
 	private HashMap<String, Group> userSpecificGroups;
 
 	public GroupsPanel(Users user, UserGUI studentsGUI) {

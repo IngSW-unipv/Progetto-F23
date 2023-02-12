@@ -22,6 +22,7 @@ import it.unipv.sfw.findme.booking.Booking;
 import it.unipv.sfw.findme.database.DBConnection;
 import it.unipv.sfw.findme.exceptions.ExceptionFrame;
 import it.unipv.sfw.findme.login.LoginGUI;
+import it.unipv.sfw.findme.notifications.LabNotificationDAO;
 import it.unipv.sfw.findme.notifications.LabNotification;
 import it.unipv.sfw.findme.users.general_user.UserGUI;
 import it.unipv.sfw.findme.users.general_user.Users;  
@@ -50,7 +51,7 @@ public class LabManager extends Users{
 
 			if (result.next() == true) {
 				conn.close();
-				ImageIcon notificationIcon=new ImageIcon("Resources/Images/bell-icon-inactive.png");
+				ImageIcon notificationIcon=new ImageIcon("Resources/Images/bell-icon-active.png");
 				Image image = notificationIcon.getImage();
 				Image newimg = image.getScaledInstance(20, 20, java.awt.Image.SCALE_SMOOTH);  
 				notificationIcon = new ImageIcon(newimg);
@@ -60,7 +61,7 @@ public class LabManager extends Users{
 			}
 			else {
 				conn.close();
-				ImageIcon notificationIcon=new ImageIcon("Resources/Images/bell-icon-active.png");
+				ImageIcon notificationIcon=new ImageIcon("Resources/Images/bell-icon-inactive.png");
 				Image image = notificationIcon.getImage();
 				Image newimg = image.getScaledInstance(20, 20, java.awt.Image.SCALE_SMOOTH);  
 				notificationIcon = new ImageIcon(newimg);
@@ -105,7 +106,7 @@ public class LabManager extends Users{
 			Statement statement = conn.createStatement();
 			ResultSet result=statement.executeQuery(query);
 			while(result.next()) {
-				notificationsArray.add(new LabNotification(result.getString(2), result.getString(6), result.getDate(3), result.getString(4), result.getString(5), result.getString(7), Boolean.parseBoolean(result.getString(8))));
+				notificationsArray.add(new LabNotification(result.getString(1), result.getString(2), result.getString(6), result.getDate(3), result.getString(4), result.getString(5), result.getString(7), Boolean.parseBoolean(result.getString(8))));
 			}
 
 			conn.close();
@@ -229,14 +230,12 @@ public class LabManager extends Users{
 	}
 	
 	public void accept(LabNotification notification) throws Exception {
-		LabBookingDAO labDAO=new LabBookingDAO();
-		String bookingID=labDAO.selectID(notification);
-		labDAO.update(new Booking(null, null, null, null, bookingID, null, null));
+		notification.accept();
 		
 	}
 	
 	public void reject(LabNotification notification) throws Exception {
-		LabBookingDAO labDAO=new LabBookingDAO();
+		LabNotificationDAO labDAO=new LabNotificationDAO();
 		String bookingID=labDAO.selectID(notification);
 		labDAO.delete(new Booking(null, null, null, null, bookingID, null, null));		
 		

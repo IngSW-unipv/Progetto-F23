@@ -35,7 +35,7 @@ public class Lab extends Rooms{
 		}		
 		
 		
-		LabNotification notification=new LabNotification(group.getGroupID(), this.code, booking.getDate(), booking.getStartTime(), booking.getEndTime(), null, false);
+		LabNotification notification=new LabNotification(booking.getBookingID(), group.getGroupID(), this.code, booking.getDate(), booking.getStartTime(), booking.getEndTime(), null, false);
 		ReasonFrame reasonFrame=new ReasonFrame(notification);		
 	}
 

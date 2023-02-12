@@ -18,8 +18,8 @@ import it.unipv.sfw.findme.booking.Booking;
 import it.unipv.sfw.findme.booking.RoomsBookingDAO;
 import it.unipv.sfw.findme.booking.SoloBookingDAO;
 import it.unipv.sfw.findme.exceptions.ExceptionFrame;
+import it.unipv.sfw.findme.notifications.LabNotificationDAO;
 import it.unipv.sfw.findme.users.general_user.UserGUI;
-import it.unipv.sfw.findme.users.lab_manager.LabBookingDAO;
 
 
 public class BookingsPanel extends JPanel{
@@ -75,7 +75,7 @@ public class BookingsPanel extends JPanel{
 		RoomsBookingDAO groupsDAO=new RoomsBookingDAO();
 		ArrayList<Booking> groupBookings=groupsDAO.selectBookingsFromUser(mainGUI.getUser());
 		
-		LabBookingDAO labDAO=new LabBookingDAO();
+		LabNotificationDAO labDAO=new LabNotificationDAO();
 		ArrayList<Booking> labBookings=labDAO.selectBookingsFromUser(mainGUI.getUser());
 		
 		groupBookings.addAll(labBookings);

@@ -4,6 +4,7 @@ import java.sql.Date;
 
 public class LabNotification implements Notification{
 	
+	private String bookingID;
 	private String groupID;
 	private String room;
 	private String startTime;
@@ -14,8 +15,9 @@ public class LabNotification implements Notification{
 
 	
 
-	public LabNotification(String groupID, String room, Date date ,String startTime, String endTime, String reason, boolean locked) {
+	public LabNotification(String bookingID, String groupID, String room, Date date ,String startTime, String endTime, String reason, boolean locked) {
 		super();
+		this.bookingID=bookingID;
 		this.groupID = groupID;
 		this.room = room;
 		this.startTime = startTime;
@@ -27,7 +29,8 @@ public class LabNotification implements Notification{
 
 	@Override
 	public void accept() {
-		// TODO Auto-generated method stub
+		LabNotificationDAO dao=new LabNotificationDAO();
+		dao.update(this);
 		
 	}
 
@@ -79,6 +82,22 @@ public class LabNotification implements Notification{
 		this.date = date;
 	}
 	
+	public String getBookingID() {
+		return bookingID;
+	}
+
+	public void setBookingID(String bookingID) {
+		this.bookingID = bookingID;
+	}
+
+	public boolean isLocked() {
+		return locked;
+	}
+
+	public void setLocked(boolean locked) {
+		this.locked = locked;
+	}
+
 	@Override
 	public String toString() {
 		

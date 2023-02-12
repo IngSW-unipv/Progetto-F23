@@ -1,4 +1,4 @@
-package it.unipv.sfw.findme.users.lab_manager;
+package it.unipv.sfw.findme.notifications;
 
 import java.sql.Connection;
 import java.sql.PreparedStatement;
@@ -7,14 +7,13 @@ import java.util.ArrayList;
 
 import it.unipv.sfw.findme.booking.Booking;
 import it.unipv.sfw.findme.database.DBConnection;
-import it.unipv.sfw.findme.notifications.LabNotification;
 import it.unipv.sfw.findme.rooms.BigRooms;
 import it.unipv.sfw.findme.users.general_user.Users;
 
 
-public class LabBookingDAO {
+public class LabNotificationDAO{
 	
-	public LabBookingDAO(){
+	public LabNotificationDAO(){
 		
 	}
 	
@@ -49,12 +48,12 @@ public class LabBookingDAO {
 	}
 	
 	
-	public void update(Booking booking) {
+	public void update(LabNotification notification) {
 		try {
 			Connection conn=DBConnection.connect();
 			String query="UPDATE lab_booking SET Locked='true' WHERE Booking_ID=?";
 			PreparedStatement preparedStmt = conn.prepareStatement(query);
-			preparedStmt.setString(1, booking.getBookingID());
+			preparedStmt.setString(1, notification.getBookingID());
 			preparedStmt.executeUpdate();
 			conn.close();
 		} catch (Exception ex) {

@@ -17,6 +17,7 @@ import java.util.ArrayList;
 import javax.swing.*;
 import javax.swing.border.LineBorder;
 
+
 import it.unipv.sfw.findme.booking.Booking;
 import it.unipv.sfw.findme.database.DBConnection;
 import it.unipv.sfw.findme.exceptions.ExceptionFrame;
@@ -34,8 +35,8 @@ public class LabManager extends Users{
 
 	@Override
 	public void GUI(LoginGUI frame) {
-		// TODO Auto-generated method stub
-		
+		LabManagerGUI gui=new LabManagerGUI(this.name, this.lastName, this.email, this);
+		frame.dispose();
 	}
 
 	@Override
@@ -240,5 +241,4 @@ public class LabManager extends Users{
 		labDAO.delete(new Booking(null, null, null, null, bookingID, null, null));		
 		
 	}
-
 }

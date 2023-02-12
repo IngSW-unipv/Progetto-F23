@@ -1,17 +1,8 @@
 package it.unipv.sfw.findme.users.lab_manager;
 
-import java.awt.BorderLayout;
-import java.awt.Color;
-import java.awt.Font;
-import java.awt.GridBagConstraints;
-import java.awt.GridBagLayout;
+import java.awt.*;
 
-import javax.swing.ImageIcon;
-import javax.swing.JFrame;
-import javax.swing.JLabel;
-import javax.swing.JPanel;
-import javax.swing.JScrollPane;
-import javax.swing.JTextArea;
+import javax.swing.*;
 import javax.swing.border.LineBorder;
 
 import it.unipv.sfw.findme.notifications.LabNotification;
@@ -80,5 +71,6 @@ public class ExpandedRequest extends JFrame {
 		setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
 		setVisible(true);
 	}
+
 
 }

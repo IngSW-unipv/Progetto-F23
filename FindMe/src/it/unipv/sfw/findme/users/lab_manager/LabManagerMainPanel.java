@@ -1,17 +1,12 @@
 package it.unipv.sfw.findme.users.lab_manager;
 
-import java.awt.Color;
-import java.awt.Font;
-import java.awt.GridBagConstraints;
-import java.awt.GridBagLayout;
+import java.awt.*;
+
 import java.awt.Insets;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
-import javax.swing.JButton;
-import javax.swing.JLabel;
-import javax.swing.JPanel;
-
+import javax.swing.*;
 
 import it.unipv.sfw.findme.login.LoginGUI;
 import it.unipv.sfw.findme.users.general_user.UserGUI;
@@ -23,7 +18,7 @@ public class LabManagerMainPanel extends JPanel {
 		setLayout (new GridBagLayout());
 		GridBagConstraints c=new GridBagConstraints();
 
-setBackground(new Color(145,0,0));
+		setBackground(new Color(145,0,0));
 		
 		c.anchor = GridBagConstraints.FIRST_LINE_START;
 		JLabel Label=new JLabel("PROFILE");

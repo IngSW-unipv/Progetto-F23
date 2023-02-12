@@ -11,8 +11,8 @@ import java.awt.Toolkit;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import javax.swing.*;
-
 import it.unipv.sfw.findme.exceptions.ExceptionFrame;
+import it.unipv.sfw.findme.register.RegisterGUI;
 
 
 public class LoginGUI extends JFrame{

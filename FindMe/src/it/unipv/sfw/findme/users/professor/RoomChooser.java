@@ -130,7 +130,7 @@ public class RoomChooser extends JFrame {
 		add(p);
 		setSize(500,200);
 		setTitle("Choose Room");
-		ImageIcon icon=new ImageIcon("Immagini/logo4.png");
+		ImageIcon icon=new ImageIcon("Resources/Images/logo4.png");
 		setIconImage(icon.getImage());
 
 		setLocationRelativeTo(null);

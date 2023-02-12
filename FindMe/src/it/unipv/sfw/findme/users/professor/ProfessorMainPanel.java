@@ -78,7 +78,7 @@ public class ProfessorMainPanel extends JPanel{
 		add(swapLabel, c);*/
 		//
 		c.anchor = GridBagConstraints.CENTER;
-		ImageIcon swapIcon=new ImageIcon("Files/swap-icon.png");
+		ImageIcon swapIcon=new ImageIcon("Resources/Images/swap-icon.png");
 		Image image = swapIcon.getImage();
 		Image newimg = image.getScaledInstance(30, 30, java.awt.Image.SCALE_SMOOTH);  
 		swapIcon = new ImageIcon(newimg);

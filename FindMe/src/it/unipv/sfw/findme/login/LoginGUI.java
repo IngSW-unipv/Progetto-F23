@@ -30,10 +30,10 @@ public class LoginGUI extends JFrame{
 
 		setTitle("FindMe");
 		
-		ImageIcon icon=new ImageIcon("Immagini/logo4.png");
+		ImageIcon icon=new ImageIcon("Resources/Images/logo4.png");
 		setIconImage(icon.getImage());
 
-		ImageIcon bground=new ImageIcon("Immagini/background_v2.jpeg");
+		ImageIcon bground=new ImageIcon("Resources/Images/background_v2.jpeg");
 		Image image = bground.getImage();
 		Image newimg = image.getScaledInstance(screenWidth, screenHeight, java.awt.Image.SCALE_SMOOTH);
 	

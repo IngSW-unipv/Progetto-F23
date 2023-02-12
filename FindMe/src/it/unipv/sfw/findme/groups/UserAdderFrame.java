@@ -26,7 +26,7 @@ public class UserAdderFrame extends JFrame{
 	public UserAdderFrame(JList<Group> list, UserGUI studentsGUI, Users user) {
 		setSize(400,200);
 		setTitle("Add User");
-		ImageIcon icon=new ImageIcon("Immagini/logo4.png");
+		ImageIcon icon=new ImageIcon("Resources/Images/logo4.png");
 		setIconImage(icon.getImage());
 
 		setLayout (new GridBagLayout());

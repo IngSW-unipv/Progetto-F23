@@ -21,7 +21,7 @@ public class UserGUI extends JFrame{
 
 		setSize(screenWidth,screenHeight);
 		setTitle("UserProfile");
-		ImageIcon icon=new ImageIcon("Immagini/logo4.png");
+		ImageIcon icon=new ImageIcon("Resources/Images/logo4.png");
 		setIconImage(icon.getImage());
 		setBackground(Color.WHITE);
 
@@ -83,7 +83,7 @@ public class UserGUI extends JFrame{
 
 	public JLabel image() {
 
-		ImageIcon Icon=new ImageIcon("Immagini/owl_v2.png");
+		ImageIcon Icon=new ImageIcon("Resources/Images/owl_v2.png");
 		Image image = Icon.getImage();
 		Image newimg = image.getScaledInstance(500, 500, java.awt.Image.SCALE_SMOOTH);
 

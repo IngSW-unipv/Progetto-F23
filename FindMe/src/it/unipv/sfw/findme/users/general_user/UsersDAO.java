@@ -62,7 +62,6 @@ public class UsersDAO {
 			name=result.getString(3);
 			lastName=result.getString(4);
 			email=result.getString(5);
-
 		} catch (Exception e1) {
 			new ExceptionFrame("Wrong Email or Password");
 			return;
@@ -70,7 +69,7 @@ public class UsersDAO {
 		
 		try {
 			Properties config= new Properties();
-			FileInputStream fis=new FileInputStream("Property/config.properties");
+			FileInputStream fis=new FileInputStream("Resources/Property/config.properties");
 			config.load(fis);
 			String userClassName=config.getProperty(type);
 			Users u=(Users)Class.forName(userClassName).getDeclaredConstructor(String.class, String.class, String.class, String.class, String.class, String.class).newInstance(name, lastName, Integer.toString(ID), email, user.getPassword(), type);

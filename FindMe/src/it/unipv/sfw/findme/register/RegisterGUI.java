@@ -39,7 +39,7 @@ public class RegisterGUI extends JFrame {
 		int screenHeight = screenSize.height;//finestra delle dimensioni dello schermo
 		int screenWidth = screenSize.width;
 
-		ImageIcon Icon=new ImageIcon("Immagini/background_v2.jpeg");
+		ImageIcon Icon=new ImageIcon("Resources/Images/background_v2.jpeg");
 		Image image = Icon.getImage();
 		Image newimg = image.getScaledInstance(screenWidth, screenHeight, java.awt.Image.SCALE_SMOOTH);
 
@@ -64,7 +64,7 @@ public class RegisterGUI extends JFrame {
 		//setSize(screenWidth,screenHeight);
 		setTitle("Register");
 		
-		ImageIcon icon=new ImageIcon("Immagini/logo4.png");
+		ImageIcon icon=new ImageIcon("Resources/Images/logo4.png");
 		setIconImage(icon.getImage());
 
 		setExtendedState(JFrame.MAXIMIZED_BOTH);

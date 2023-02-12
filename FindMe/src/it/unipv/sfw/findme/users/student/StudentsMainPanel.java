@@ -72,7 +72,7 @@ public class StudentsMainPanel extends JPanel{
 			//
 		
 			c.anchor = GridBagConstraints.PAGE_START;
-			ImageIcon friendsIcon=new ImageIcon("Files/users-icon.png");
+			ImageIcon friendsIcon=new ImageIcon("Resources/Images/users-icon.png");
 			Image image = friendsIcon.getImage();
 			Image newimg = image.getScaledInstance(30, 30, java.awt.Image.SCALE_SMOOTH);  
 			friendsIcon = new ImageIcon(newimg);
@@ -95,7 +95,7 @@ public class StudentsMainPanel extends JPanel{
 			add(groupsButton, c);
 			//
 			c.anchor = GridBagConstraints.EAST;
-			ImageIcon clockIcon=new ImageIcon("Files/clock-icon.png");
+			ImageIcon clockIcon=new ImageIcon("Resources/Images/clock-icon.png");
 			Image clock = clockIcon.getImage();
 			Image tempClock = clock.getScaledInstance(30, 30, java.awt.Image.SCALE_SMOOTH);  
 			clockIcon = new ImageIcon(tempClock);
@@ -122,7 +122,7 @@ public class StudentsMainPanel extends JPanel{
 			c.insets= new Insets(0,0,50,0);
 			add(scheduleButton, c);
 			
-			ImageIcon calendarIcon=new ImageIcon("Files/calendar-icon.png");
+			ImageIcon calendarIcon=new ImageIcon("Resources/Images/calendar-icon.png");
 			Image calendar = calendarIcon.getImage();
 			Image temp = calendar.getScaledInstance(30, 30, java.awt.Image.SCALE_SMOOTH);  
 			calendarIcon = new ImageIcon(temp);

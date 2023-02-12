@@ -185,7 +185,7 @@ public class SendDraftFrame extends JFrame{
 		setSize(700,400);
 		setTitle("Choose Room");
 		
-		ImageIcon icon=new ImageIcon("Immagini/logo4.png");
+		ImageIcon icon=new ImageIcon("Resources/Images/logo4.png");
 		setIconImage(icon.getImage());
 
 		setLocationRelativeTo(null);

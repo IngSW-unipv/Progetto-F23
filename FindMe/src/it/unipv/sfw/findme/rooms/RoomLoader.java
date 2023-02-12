@@ -15,7 +15,7 @@ public class RoomLoader { //uso pattern factory
 	
 	public RoomLoader() throws Exception {
 		Properties config= new Properties();
-		FileInputStream fis=new FileInputStream("Property/config.properties");
+		FileInputStream fis=new FileInputStream("Resources/Property/config.properties");
 		config.load(fis);
 		Rooms r;
 		try {

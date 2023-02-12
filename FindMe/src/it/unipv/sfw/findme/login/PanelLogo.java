@@ -18,7 +18,7 @@ public class PanelLogo extends JPanel {
 		setBackground(new Color (0,0,0,0));
 		
 	
-		ImageIcon Icon=new ImageIcon("Immagini/logo2.png");
+		ImageIcon Icon=new ImageIcon("Resources/Images/logo2.png");
 		Image image = Icon.getImage();
 		Image newimg = image.getScaledInstance(170, 170, java.awt.Image.SCALE_SMOOTH);  
 		Icon = new ImageIcon(newimg);

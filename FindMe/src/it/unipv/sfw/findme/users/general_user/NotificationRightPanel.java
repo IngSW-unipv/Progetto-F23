@@ -37,7 +37,7 @@ public class NotificationRightPanel extends JPanel{
 		c.gridy=0;
 		add(notificationsButton, c);
 
-		ImageIcon refreshIcon=new ImageIcon("Files/refresh-icon.png");
+		ImageIcon refreshIcon=new ImageIcon("Resources/Images/refresh-icon.png");
 		Image image2 = refreshIcon.getImage();
 		Image newimg2 = image2.getScaledInstance(20, 20, java.awt.Image.SCALE_SMOOTH);  
 		refreshIcon = new ImageIcon(newimg2);

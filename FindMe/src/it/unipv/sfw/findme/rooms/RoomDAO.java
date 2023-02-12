@@ -57,7 +57,7 @@ public class RoomDAO {
 		try {
 			HashMap<String, Rooms> allRooms=new HashMap<String, Rooms>();
 			Properties config= new Properties();
-			FileInputStream fis=new FileInputStream("Property/config.properties");
+			FileInputStream fis=new FileInputStream("Resources/Property/config.properties");
 			config.load(fis);
 			Connection conn=DBConnection.connect();
 

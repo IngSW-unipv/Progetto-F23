@@ -49,7 +49,7 @@ public class AcceptRejectFrame extends JFrame{
 		
 		f.setSize(400,200);
 
-		ImageIcon icon=new ImageIcon("Immagini/logo4.png");
+		ImageIcon icon=new ImageIcon("Resources/Images/logo4.png");
 		f.setIconImage(icon.getImage());
 
 		f.setLocationRelativeTo(null);

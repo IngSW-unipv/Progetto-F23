@@ -50,7 +50,7 @@ public abstract class Users {
 		return this.type;
 	}
 	
-	//da qua in poi non c'è
+
 	public abstract void GUI(LoginGUI frame);
 	
 	public abstract JButton checkNotifications();

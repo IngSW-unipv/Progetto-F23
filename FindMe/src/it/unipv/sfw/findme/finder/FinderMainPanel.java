@@ -11,6 +11,7 @@ import javax.swing.*;
 import javax.swing.border.LineBorder;
 import it.unipv.sfw.findme.booking.Booking;
 import it.unipv.sfw.findme.booking.ConfirmBookigPanel;
+import it.unipv.sfw.findme.exceptions.ExceptionFrame;
 import it.unipv.sfw.findme.finder.filters.FilterCheckBox;
 import it.unipv.sfw.findme.finder.filters.FilterRoomType;
 import it.unipv.sfw.findme.finder.filters.FilterSeatsNumber;
@@ -33,29 +34,20 @@ public class FinderMainPanel extends JPanel{
 
 		setBackground(Color.white);
 		setLayout (new GridBagLayout());
-	
+
 		GridBagConstraints c=new GridBagConstraints();
-	/*	
-		c.anchor = GridBagConstraints.PAGE_START;
-		JLabel notLabel= new JLabel("This is free room:");
-		notLabel.setFont(new Font("Comic Sans MS", Font.BOLD,25));
-		notLabel.setForeground(new Color(145,0,0));
-		c.gridx=0;
-		c.gridy=0;
-		c.insets= new Insets (0,0,100,0);
-		add(notLabel,c);*/
+
 
 		JList<Booking> list=new JList(freeRooms.toArray());
 		list.setForeground(Color.black);
 		JScrollPane listScroller = new JScrollPane(list);
 		listScroller.setBorder(new LineBorder(new Color(145,0,0),2));
 		listScroller.setPreferredSize(new Dimension(250, 200));
-		listScroller.setForeground(new Color(145,0,0));
-		listScroller.setBackground(new Color(145,0,0));
+
 		c.insets = new Insets(0,0,20,0);
 		c.gridx=1;
 		c.gridy=0;
-		
+
 		this.scroll=listScroller;
 		add(listScroller, c);
 
@@ -65,6 +57,7 @@ public class FinderMainPanel extends JPanel{
 		filterSeats100.setSeats(100);
 		filterSeats100.setFont(new Font("Comic Sans MS", Font.BOLD,15));
 		filterSeats100.setForeground(new Color(145,0,0));
+		filterSeats100.setBackground(Color.white);
 		this.allFilters.add(filterSeats100);
 		c.gridx=0;
 		c.gridy=1;
@@ -77,6 +70,7 @@ public class FinderMainPanel extends JPanel{
 		this.allFilters.add(filterSeats50);
 		filterSeats50.setFont(new Font("Comic Sans MS", Font.BOLD,15));
 		filterSeats50.setForeground(new Color(145,0,0));
+		filterSeats50.setBackground(Color.white);
 		c.gridx=1;
 		c.gridy=1;
 		add(filterSeats50, c);
@@ -87,6 +81,7 @@ public class FinderMainPanel extends JPanel{
 		this.allFilters.add(filterLab);
 		filterLab.setFont(new Font("Comic Sans MS", Font.BOLD,15));
 		filterLab.setForeground(new Color(145,0,0));
+		filterLab.setBackground(Color.white);
 		c.gridx=2;
 		c.gridy=1;
 		add(filterLab, c);
@@ -101,7 +96,7 @@ public class FinderMainPanel extends JPanel{
 		filterButton.setBackground(new Color(145,0,0));
 		filterButton.setOpaque(true);
 		filterButton.setBorderPainted(false);
-	
+
 		c.gridx=3;
 		c.gridy=1;
 		c.insets = new Insets(0,20,15,0);
@@ -116,7 +111,7 @@ public class FinderMainPanel extends JPanel{
 		bookButton.setBackground(new Color(145,0,0));
 		bookButton.setOpaque(true);
 		bookButton.setBorderPainted(false);
-	
+
 		c.gridx=1;
 		c.gridy=2;
 		c.insets = new Insets(20,0,0,0);
@@ -147,6 +142,14 @@ class BookListener implements ActionListener{
 
 	@Override
 	public void actionPerformed(ActionEvent e) {
+		try {
+			if(this.scroll.getSelectedValue()==null) {
+				throw new IllegalArgumentException();
+			}
+		}catch(IllegalArgumentException ex){
+			new ExceptionFrame("No Room Selected");
+			return;
+		}
 		this.frame.removePanel();
 		this.frame.addSecondPanel(new ConfirmBookigPanel(this.scroll, user, frame));
 		this.frame.revalidate();
@@ -175,10 +178,10 @@ class FilterListener implements ActionListener{
 	public void actionPerformed(ActionEvent e) {
 		this.freeRooms=this.panel.getFreeRooms();
 		this.allFiltered.clear();
-		
+
 		for(FilterCheckBox singleFilter: allFilters) {
 			if(singleFilter.isSelected()==true) {
-			this.allFiltered.put(singleFilter.getLabel(), singleFilter.filter(freeRooms, singleFilter));
+				this.allFiltered.put(singleFilter.getLabel(), singleFilter.filter(freeRooms, singleFilter));
 			}
 		}
 

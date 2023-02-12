@@ -5,7 +5,6 @@ import java.util.HashMap;
 import java.util.List;
 import it.unipv.sfw.findme.booking.Booking;
 import it.unipv.sfw.findme.rooms.RoomDAO;
-import it.unipv.sfw.findme.rooms.RoomLoader;
 import it.unipv.sfw.findme.rooms.Rooms;
 
 

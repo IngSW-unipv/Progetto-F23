@@ -19,7 +19,6 @@ import it.unipv.sfw.findme.datemanager.DateHolder;
 import it.unipv.sfw.findme.datemanager.Months;
 import it.unipv.sfw.findme.datemanager.MyTimer;
 import it.unipv.sfw.findme.rooms.RoomDAO;
-import it.unipv.sfw.findme.rooms.RoomLoader;
 import it.unipv.sfw.findme.rooms.Rooms;
 
 public class FinderDB {
@@ -56,7 +55,7 @@ public class FinderDB {
 		int loopCount=endNumber-startNumber;
 		try {
 			Properties config= new Properties();
-			FileInputStream fis=new FileInputStream("Property/config.properties");
+			FileInputStream fis=new FileInputStream("Resources/Property/config.properties");
 			config.load(fis);
 
 			for(int i=0; i<loopCount; i++) {

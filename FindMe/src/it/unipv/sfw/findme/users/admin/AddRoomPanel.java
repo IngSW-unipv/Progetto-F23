@@ -82,7 +82,7 @@ public class AddRoomPanel extends JPanel{
 		c.gridy=3;
 		add(yesNoOutlets, c);
 		//
-		JLabel disabledAccess=new JLabel("Disabled Access: ");
+		JLabel disabledAccess=new JLabel("Access for disabled: ");
 		disabledAccess.setFont(new Font("Comic Sans MS", Font.BOLD,17));
 		disabledAccess.setForeground(new Color(145,0,0));
 		c.gridx=0;

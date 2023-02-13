@@ -83,24 +83,4 @@ public class LabNotificationDAO{
 		return bookings;		
 	}
 	
-	
-	public void deleteBooking(Booking booking){
-		try {
-			Connection conn=DBConnection.connect();
-			String query="delete from lab_booking where Booking_ID=? and Date=? and Room=? and Group_ID=? and Start_Time=? and End_Time=? and Locked=?";
-			PreparedStatement preparedStmt = conn.prepareStatement(query);
-			preparedStmt.setString(1, booking.getBookingID());
-			preparedStmt.setDate(2, booking.getDate());
-			preparedStmt.setString(3, booking.getRoom().getCode());
-			preparedStmt.setString(4, booking.getPeopleID());
-			preparedStmt.setString(5, booking.getStartTime());
-			preparedStmt.setString(6, booking.getEndTime());
-			preparedStmt.setString(7, Boolean.toString(booking.isLocked()));
-			preparedStmt.execute();
-			conn.close();
-		}
-		catch(Exception e) {
-		}
-	}
-	
 }

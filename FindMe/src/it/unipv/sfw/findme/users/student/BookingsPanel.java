@@ -110,7 +110,7 @@ public class BookingsPanel extends JPanel{
 					return;
 				}
 				groupsDAO.deleteBooking(groupsList.getSelectedValue());
-				labDAO.deleteBooking(groupsList.getSelectedValue());
+				labDAO.delete(groupsList.getSelectedValue());
 				mainGUI.removePanel();
 				mainGUI.addSecondPanel(new BookingsPanel(mainGUI));
 				mainGUI.revalidate();

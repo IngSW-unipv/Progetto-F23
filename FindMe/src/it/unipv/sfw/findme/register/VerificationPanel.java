@@ -5,6 +5,8 @@ import java.awt.Color;
 import java.awt.Font;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+
+import javax.swing.ImageIcon;
 import javax.swing.JButton;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
@@ -70,7 +72,10 @@ public class VerificationPanel{
 		mainFrame.setBackground(Color.WHITE);
 
 		mainFrame.setSize(500,300);
-		mainFrame.setTitle("Error");
+		mainFrame.setTitle("Verification");
+		
+		ImageIcon icon=new ImageIcon("Resources/Images/logo4.png");
+		mainFrame.setIconImage(icon.getImage());
 
 		mainFrame.setLocationRelativeTo(null);
 		mainFrame.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
@@ -100,6 +105,9 @@ class VerificationSuccess extends JFrame{
 
 		setSize(300,200);
 		setTitle("Success");
+		
+		ImageIcon icon=new ImageIcon("Resources/Images/logo4.png");
+		setIconImage(icon.getImage());
 
 		setLocationRelativeTo(null);
 		setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);

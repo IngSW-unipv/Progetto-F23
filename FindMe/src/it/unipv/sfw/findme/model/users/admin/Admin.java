@@ -1,13 +1,10 @@
 package it.unipv.sfw.findme.model.users.admin;
 
-import java.io.FileInputStream;
 import java.sql.Connection;
 import java.sql.Date;
 import java.sql.PreparedStatement;
 import java.sql.Statement;
-import java.util.Properties;
 import javax.swing.*;
-
 import it.unipv.sfw.findme.model.courses.Course;
 import it.unipv.sfw.findme.model.courses.dao.CourseDAO;
 import it.unipv.sfw.findme.model.database.DBConnection;
@@ -24,7 +21,6 @@ public class Admin extends Users {
 
 	public Admin(String name, String lastName, String ID, String email, String password, String type) {
 		super(name, lastName, ID, email, password, type);
-		// TODO Auto-generated constructor stub
 	}
 
 	@Override
@@ -36,7 +32,6 @@ public class Admin extends Users {
 
 	@Override
 	public JButton checkNotifications() {
-		// TODO Auto-generated method stub
 		return null;
 	}
 
@@ -48,13 +43,11 @@ public class Admin extends Users {
 
 	@Override
 	public JPanel book(Object[] objects, UserGUI frame) {
-		// TODO Auto-generated method stub
 		return null;
 	}
 
 	@Override
 	public JPanel notificationPanel(Users user, UserGUI frame) {
-		// TODO Auto-generated method stub
 		return null;
 	}
 

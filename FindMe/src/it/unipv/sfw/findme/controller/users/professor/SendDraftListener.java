@@ -8,12 +8,8 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.time.DayOfWeek;
 import java.time.LocalDate;
-
 import javax.swing.JComboBox;
-import javax.swing.JList;
-
 import org.jdatepicker.impl.JDatePanelImpl;
-
 import it.unipv.sfw.findme.model.database.DBConnection;
 import it.unipv.sfw.findme.model.exceptions.ExceptionFrame;
 import it.unipv.sfw.findme.model.notifications.ProfessorNotification;

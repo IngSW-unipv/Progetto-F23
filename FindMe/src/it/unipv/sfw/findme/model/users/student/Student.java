@@ -235,14 +235,4 @@ public class Student extends Users{
 	public String toString() {
 		return this.name+" "+this.lastName+" ID: "+this.ID;
 	}
-	
-	
-	
-	 public static void main(String[] args) {
-	        // Get the name of the class
-	        String className = Student.class.getName();
-
-	        // Print the name of the class
-	        System.out.println("Class name: " + className);
-	    }
 }

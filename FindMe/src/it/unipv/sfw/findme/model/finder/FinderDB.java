@@ -124,12 +124,9 @@ public class FinderDB {
 					start=Integer.toString(startNumber+i)+":00";
 					end=Integer.toString(startNumber+i+1)+":00";
 					if(availability.containsKey(start+"-"+end)) {
-						//System.out.println(room.getValue().getCode()+" OCCUPATO from: "+start+" to "+end+" for "+availability.get(start+"-"+end).getSubject());
 					}
 					else {
-						//this.freeRooms.add(new FreeForBooking(room.getValue().getCode(), start, end, room.getValue().getSeats()));
 						this.free.add(new Booking(start, end, null, room.getValue(), null, null, null));
-						//System.out.println(room.getValue().getCode()+" LIBERO from: "+start+" to "+end+" posti: "+room.getValue().getSeats());
 					}
 				}
 			}
@@ -162,8 +159,7 @@ public class FinderDB {
 		if(dayOfWeek.equals("SUNDAY")) {
 			throw new Exception();
 		}
-		
-		//System.out.println(myDate);
+
 		if(myDate.compareTo(start.toLocalDate())>0 && myDate.compareTo(end.toLocalDate())>0) {
 			
 			throw new Exception();

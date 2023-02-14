@@ -2,7 +2,7 @@ package it.unipv.sfw.findme.model.email;
 
 import java.util.Random;
 
-public class GenerateRandom {//codice di verifica lo genero con un random tra 1000 e 9999
+public class GenerateRandom {
 	private int number;
 	
 	public GenerateRandom() {

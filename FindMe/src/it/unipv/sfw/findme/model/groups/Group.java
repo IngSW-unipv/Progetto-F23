@@ -2,7 +2,7 @@ package it.unipv.sfw.findme.model.groups;
 
 
 import java.util.HashMap;
-
+import it.unipv.sfw.findme.model.email.EmailTemplate;
 import it.unipv.sfw.findme.model.exceptions.ExceptionFrame;
 import it.unipv.sfw.findme.model.groups.dao.GroupDAO;
 import it.unipv.sfw.findme.model.notifications.dao.JoinGroupNotificationDAO;
@@ -67,8 +67,8 @@ public class Group {
 
 			JoinGroupNotificationDAO notifyDAO=new JoinGroupNotificationDAO();
 			notifyDAO.insertNotification(group, student);
-			//EmailTemplate eTemp=new EmailTemplate(student.getEmail(), "Notification", "You have been invited by "+group.getGroupAdmin()+" to join the Group: "+group.getGroupID());
-			//eTemp.start();
+			EmailTemplate eTemp=new EmailTemplate(student.getEmail(), "Notification", "You have been invited by "+group.getGroupAdmin()+" to join the Group: "+group.getGroupID());
+			eTemp.start();
 
 		} catch (Exception e) {
 			new ExceptionFrame("User Already invited to the Group!");

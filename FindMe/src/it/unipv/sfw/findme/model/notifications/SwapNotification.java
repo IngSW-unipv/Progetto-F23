@@ -31,8 +31,6 @@ public class SwapNotification implements Notification{
 
 	@Override
 	public void accept() {
-		// TODO Auto-generated method stub
-
 	}
 
 	public String getSender() {

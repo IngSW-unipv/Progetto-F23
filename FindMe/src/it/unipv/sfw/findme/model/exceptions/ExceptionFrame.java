@@ -18,37 +18,37 @@ public class ExceptionFrame {
 	}
 
 	public void ExceptionHandler(String message) {
-		JFrame f=new JFrame();
-		JPanel p=new JPanel();
-		p.setBackground(Color.white);
-		JLabel l=new JLabel(message);
-		l.setFont(new Font("Comic Sans MS", Font.BOLD,15));
-		l.setForeground(new Color(145,0,0));
+		JFrame mainFrame=new JFrame();
+		JPanel mainPanel=new JPanel();
+		mainPanel.setBackground(Color.white);
+		JLabel label=new JLabel(message);
+		label.setFont(new Font("Comic Sans MS", Font.BOLD,15));
+		label.setForeground(new Color(145,0,0));
 		//
-		JButton b=new JButton("OK");
-		b.setFont(new Font("Comic Sans MS", Font.BOLD,10));
-		b.setForeground(Color.white);
-		b.setBackground(new Color(145,0,0));
-		b.setOpaque(true);
-		b.setBorderPainted(false);
-		b.addActionListener(new ActionListener() {
+		JButton okButton=new JButton("OK");
+		okButton.setFont(new Font("Comic Sans MS", Font.BOLD,10));
+		okButton.setForeground(Color.white);
+		okButton.setBackground(new Color(145,0,0));
+		okButton.setOpaque(true);
+		okButton.setBorderPainted(false);
+		okButton.addActionListener(new ActionListener() {
 			@Override
 			public void actionPerformed(ActionEvent e) {
-				f.dispose();
+				mainFrame.dispose();
 			}
 		});
-		p.add(l);
-		p.add(b);
-		f.add(p);
+		mainPanel.add(label);
+		mainPanel.add(okButton);
+		mainFrame.add(mainPanel);
 		
-		f.setSize(400,200);
-		f.setTitle("Message");
+		mainFrame.setSize(400,200);
+		mainFrame.setTitle("Message");
 		ImageIcon icon=new ImageIcon("Resources/Images/logo4.png");
-		f.setIconImage(icon.getImage());
+		mainFrame.setIconImage(icon.getImage());
 
-		f.setLocationRelativeTo(null);
-		f.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
-		f.setVisible(true);
+		mainFrame.setLocationRelativeTo(null);
+		mainFrame.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
+		mainFrame.setVisible(true);
 	}
 
 } 

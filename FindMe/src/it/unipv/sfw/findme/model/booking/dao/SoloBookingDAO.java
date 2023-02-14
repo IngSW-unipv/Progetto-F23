@@ -1,11 +1,9 @@
 package it.unipv.sfw.findme.model.booking.dao;
 
 import java.sql.Connection;
-import java.sql.Date;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.util.ArrayList;
-
 import it.unipv.sfw.findme.model.booking.Booking;
 import it.unipv.sfw.findme.model.database.DBConnection;
 import it.unipv.sfw.findme.model.datemanager.DateHolderSingletone;

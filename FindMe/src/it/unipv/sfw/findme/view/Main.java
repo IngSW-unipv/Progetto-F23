@@ -1,4 +1,4 @@
-package it.unipv.sfw.findme;
+package it.unipv.sfw.findme.view;
 
 import java.io.IOException;
 

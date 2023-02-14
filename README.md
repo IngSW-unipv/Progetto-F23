@@ -19,5 +19,5 @@ Ha svariate funzionalità quali:
 #### PRESENTAZIONE   
 
 
-[Link di presentazione](https://www.canva.com/design/DAFZ_8aBJw4/uq8ak5xvqqSfDJdXiM5v_g/view?utm_content=DAFZ_8aBJw4&utm_campaign=designshare&utm_medium=link&utm_source=publishsharelink)  
+[Link di presentazione](https://www.canva.com/design/DAFZ_8aBJw4/uq8ak5xvqqSfDJdXiM5v_g/view?utm_content=DAFZ_8aBJw4&utm_campaign=designshare&utm_medium=link&utm_source=publishsharelink)
 

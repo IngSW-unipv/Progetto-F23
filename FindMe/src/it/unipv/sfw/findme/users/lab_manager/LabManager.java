@@ -142,7 +142,7 @@ public class LabManager extends Users{
 			@Override
 			public void actionPerformed(ActionEvent e) {
 				try {
-				ExpandedRequest expandFrame=new ExpandedRequest(notificationsList.getSelectedValue());
+				ExpandedRequestFrame expandFrame=new ExpandedRequestFrame(notificationsList.getSelectedValue());
 				}catch(Exception ex) {
 					new ExceptionFrame("No Notification Selected");
 					return;

@@ -139,7 +139,7 @@ public class ProfessorNotificationPanel extends JPanel{
 					new ExceptionFrame("No Notification Selected!");
 					return;
 				}
-				RoomChooser choose=new RoomChooser(notification, user, frame);
+				RoomChooserFrame choose=new RoomChooserFrame(notification, user, frame);
 				frame.removePanel();
 				frame.addSecondPanel(new ProfessorNotificationPanel(user, frame));
 				frame.revalidate();

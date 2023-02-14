@@ -2,7 +2,7 @@ package it.unipv.sfw.findme.datemanager;
 
 import java.util.HashMap;
 
-public class Months {
+public class MonthsSingleton {
 
 	private static HashMap<String, Integer> months=new HashMap<String, Integer>(){{
 	put("January", 1);

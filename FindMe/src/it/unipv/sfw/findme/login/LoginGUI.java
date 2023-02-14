@@ -12,7 +12,7 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import javax.swing.*;
 import it.unipv.sfw.findme.exceptions.ExceptionFrame;
-import it.unipv.sfw.findme.register.RegisterGUI;
+import it.unipv.sfw.findme.register.RegistrationGUI;
 
 
 public class LoginGUI extends JFrame{
@@ -180,7 +180,7 @@ class MainPanel extends JPanel{
 		registerButton.addActionListener(new ActionListener() {
 			@Override
 			public void actionPerformed(ActionEvent e) {
-				RegisterGUI register=new RegisterGUI();
+				RegistrationGUI register=new RegistrationGUI();
 				mainGUI.dispose();
 
 			}

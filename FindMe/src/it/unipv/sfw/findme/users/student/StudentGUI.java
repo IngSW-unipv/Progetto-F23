@@ -6,10 +6,10 @@ import it.unipv.sfw.findme.users.general_user.UserGUI;
 import it.unipv.sfw.findme.users.general_user.UsersHeadPanel;
 
 
-public class StudentsGUI extends UserGUI{
+public class StudentGUI extends UserGUI{
 	
 
-	public StudentsGUI(String name, String lastName, String email, Students user) {
+	public StudentGUI(String name, String lastName, String email, Student user) {
 		super(name, lastName, email, user);
 		
 		

@@ -13,15 +13,15 @@ import javax.swing.JButton;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
 
-import it.unipv.sfw.findme.groups.GroupsPanel;
+import it.unipv.sfw.findme.groups.GroupsListPanel;
 import it.unipv.sfw.findme.login.LoginGUI;
 import it.unipv.sfw.findme.users.admin.ViewCoursesPanel;
 import it.unipv.sfw.findme.users.general_user.UserGUI;
 import it.unipv.sfw.findme.users.general_user.Users;
 
 
-public class StudentsMainPanel extends JPanel{
-		public StudentsMainPanel(String name, String lastName, String email, UserGUI mainGUI, Users user) {		
+public class StudentMainPanel extends JPanel{
+		public StudentMainPanel(String name, String lastName, String email, UserGUI mainGUI, Users user) {		
 			setLayout (new GridBagLayout());
 			GridBagConstraints c=new GridBagConstraints();
 			
@@ -84,7 +84,7 @@ public class StudentsMainPanel extends JPanel{
 				@Override
 				public void actionPerformed(ActionEvent e) {
 					mainGUI.removePanel();
-					mainGUI.addSecondPanel(new GroupsPanel(user, mainGUI));
+					mainGUI.addSecondPanel(new GroupsListPanel(user, mainGUI));
 					mainGUI.revalidate();
 					mainGUI.repaint();
 				}
@@ -141,7 +141,7 @@ public class StudentsMainPanel extends JPanel{
 				@Override
 				public void actionPerformed(ActionEvent e) {
 					mainGUI.removePanel();
-					BookingsPanel bookingsPanel=new BookingsPanel(mainGUI);
+					BookingsListPanel bookingsPanel=new BookingsListPanel(mainGUI);
 					mainGUI.addSecondPanel(bookingsPanel);
 					mainGUI.revalidate();
 					mainGUI.repaint();

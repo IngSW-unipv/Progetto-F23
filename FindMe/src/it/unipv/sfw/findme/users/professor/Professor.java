@@ -20,7 +20,7 @@ import it.unipv.sfw.findme.booking.Booking;
 import it.unipv.sfw.findme.booking.RoomsBookingDAO;
 import it.unipv.sfw.findme.booking.SoloBookingDAO;
 import it.unipv.sfw.findme.database.DBConnection;
-import it.unipv.sfw.findme.datemanager.DateHolder;
+import it.unipv.sfw.findme.datemanager.DateHolderSingletone;
 import it.unipv.sfw.findme.datemanager.MyTimer;
 import it.unipv.sfw.findme.exceptions.ExceptionFrame;
 import it.unipv.sfw.findme.login.LoginGUI;
@@ -101,9 +101,9 @@ public class Professor extends Users{
 
 	@Override
 	public JPanel book(Object[] objects, UserGUI frame) {
-		int year=DateHolder.getYear();
-		int month=DateHolder.getMonth();
-		int day=DateHolder.getDay();
+		int year=DateHolderSingletone.getYear();
+		int month=DateHolderSingletone.getMonth();
+		int day=DateHolderSingletone.getDay();
 
 		JPanel bookPanel=new JPanel();
 		bookPanel.setBackground(Color.white);
@@ -131,7 +131,7 @@ public class Professor extends Users{
 		MyTimer time=new MyTimer();
 
 		LocalDate now=time.getJavaDate();
-		Date date=DateHolder.getDate();
+		Date date=DateHolderSingletone.getDate();
 		LocalDate bookingDate=date.toLocalDate();
 
 		JButton claimButton=new JButton("Claim Room");

@@ -2,15 +2,15 @@ package it.unipv.sfw.findme.datemanager;
 
 import java.sql.Date;
 
-public class DateHolder {
+public class DateHolderSingletone {
 	private static int day;
 	private static int month;
 	private static int year;
 	
 	public static void DateHolder(int day, int month, int year) {
-		DateHolder.day=day;
-		DateHolder.month=month;
-		DateHolder.year=year;
+		DateHolderSingletone.day=day;
+		DateHolderSingletone.month=month;
+		DateHolderSingletone.year=year;
 		
 	}
 

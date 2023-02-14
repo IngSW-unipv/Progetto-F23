@@ -18,29 +18,29 @@ import java.util.List;
 import javax.swing.*;
 import it.unipv.sfw.findme.booking.Booking;
 import it.unipv.sfw.findme.database.DBConnection;
-import it.unipv.sfw.findme.datemanager.DateHolder;
+import it.unipv.sfw.findme.datemanager.DateHolderSingletone;
 import it.unipv.sfw.findme.exceptions.ExceptionFrame;
 import it.unipv.sfw.findme.groups.Group;
 import it.unipv.sfw.findme.groups.GroupDAO;
-import it.unipv.sfw.findme.groups.GroupsPanel;
+import it.unipv.sfw.findme.groups.GroupsListPanel;
 import it.unipv.sfw.findme.login.LoginGUI;
 import it.unipv.sfw.findme.notifications.Notification;
 import it.unipv.sfw.findme.rooms.RoomDAO;
 import it.unipv.sfw.findme.users.general_user.UserGUI;
 import it.unipv.sfw.findme.users.general_user.Users;  
 
-public class Students extends Users{
+public class Student extends Users{
 
 	private HashMap<String, Group> groups;
 
-	public Students(String name, String lastName, String ID, String email, String password, String type) {
+	public Student(String name, String lastName, String ID, String email, String password, String type) {
 		super(name, lastName, ID, email, password,type);
 		this.groups=new HashMap<String, Group>();
 	}
 
 	@Override
 	public void GUI(LoginGUI frame) {
-		StudentsGUI gui=new StudentsGUI(name, lastName, email, this);
+		StudentGUI gui=new StudentGUI(name, lastName, email, this);
 		frame.dispose();
 	}	
 
@@ -61,7 +61,7 @@ public class Students extends Users{
 	}
 	
 	
-	public void removeStudent(Group group, Students student) throws Exception {
+	public void removeStudent(Group group, Student student) throws Exception {
 		GroupDAO dao=new GroupDAO();
 		dao.deletePartecipant(group, student);
 	}
@@ -111,14 +111,14 @@ public class Students extends Users{
 
 	@Override
 	public JPanel getMainPanel(UserGUI gui) {
-		return new StudentsMainPanel(name, lastName, email, gui, this);
+		return new StudentMainPanel(name, lastName, email, gui, this);
 	}
 
 
 	public JPanel book(Object[] objects, UserGUI frame) {
-		int year=DateHolder.getYear();
-		int month=DateHolder.getMonth();
-		int day=DateHolder.getDay();
+		int year=DateHolderSingletone.getYear();
+		int month=DateHolderSingletone.getMonth();
+		int day=DateHolderSingletone.getDay();
 
 		JPanel bookPanel=new JPanel();
 
@@ -126,7 +126,7 @@ public class Students extends Users{
 		bookPanel.setBackground(Color.white);
 		GridBagConstraints c=new GridBagConstraints();
 
-		GroupsPanel groupsPanel=new GroupsPanel(this, frame);
+		GroupsListPanel groupsPanel=new GroupsListPanel(this, frame);
 		HashMap<String, Group> groups=groupsPanel.getUserSpecificGroups();
 		ArrayList<Group> groupsArray=new ArrayList<Group>();
 		for(HashMap.Entry<String, Group> group : groups.entrySet()) {

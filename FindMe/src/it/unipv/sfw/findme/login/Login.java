@@ -2,7 +2,7 @@ package it.unipv.sfw.findme.login;
 
 
 import it.unipv.sfw.findme.users.general_user.UsersDAO;
-import it.unipv.sfw.findme.users.student.Students;
+import it.unipv.sfw.findme.users.student.Student;
 
 public class Login {
 	String emailOrID;
@@ -18,7 +18,7 @@ public class Login {
 	
 	public void login() {
 		UsersDAO dao=new UsersDAO();
-		dao.selectUser(new Students(null, null, null, emailOrID, passwordString, null));
+		dao.selectUser(new Student(null, null, null, emailOrID, passwordString, null));
 		dao.getUser().GUI(frame);
 	}
 	

@@ -6,7 +6,7 @@ import java.sql.ResultSet;
 import it.unipv.sfw.findme.database.DBConnection;
 import it.unipv.sfw.findme.groups.Group;
 import it.unipv.sfw.findme.groups.GroupDAO;
-import it.unipv.sfw.findme.users.student.Students;
+import it.unipv.sfw.findme.users.student.Student;
 
 
 public class JoinGroupNotification implements Notification{
@@ -31,7 +31,7 @@ public class JoinGroupNotification implements Notification{
 		}
 
 		try {
-			daoGroup.insertPartecipant(group, new Students(null, null, this.receiver, null, null, null));
+			daoGroup.insertPartecipant(group, new Student(null, null, this.receiver, null, null, null));
 		} catch (Exception ea) {
 			ea.printStackTrace();
 		}

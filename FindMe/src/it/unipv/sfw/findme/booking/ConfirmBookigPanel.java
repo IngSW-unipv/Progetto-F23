@@ -11,7 +11,7 @@ import java.util.List;
 import javax.swing.*;
 import javax.swing.border.LineBorder;
 import it.unipv.sfw.findme.database.DBConnection;
-import it.unipv.sfw.findme.datemanager.DateHolder;
+import it.unipv.sfw.findme.datemanager.DateHolderSingletone;
 import it.unipv.sfw.findme.exceptions.ExceptionFrame;
 import it.unipv.sfw.findme.rooms.Rooms;
 import it.unipv.sfw.findme.users.general_user.UserGUI;
@@ -96,11 +96,11 @@ public class ConfirmBookigPanel extends JPanel{
 								+ "(select count(*) from allgroups where Group_ID in (select Group_ID from rooms_booking where rooms_booking.Date=? and Room=? and Start_Time=? and End_Time=?))\r\n"
 								+ "+(select count(*) from solo_booking where solo_booking.Date=? and Room=? and Start_Time=? and End_Time=?) as sum";
 						PreparedStatement preparedStmt = conn.prepareStatement(query);
-						preparedStmt.setDate(1, DateHolder.getDate());
+						preparedStmt.setDate(1, DateHolderSingletone.getDate());
 						preparedStmt.setString(2, list.getSelectedValue().getRoom().getCode());
 						preparedStmt.setString(3, list.getSelectedValue().getStartTime());
 						preparedStmt.setString(4, list.getSelectedValue().getEndTime());
-						preparedStmt.setDate(5, DateHolder.getDate());
+						preparedStmt.setDate(5, DateHolderSingletone.getDate());
 						preparedStmt.setString(6, list.getSelectedValue().getRoom().getCode());
 						preparedStmt.setString(7, list.getSelectedValue().getStartTime());
 						preparedStmt.setString(8, list.getSelectedValue().getEndTime());

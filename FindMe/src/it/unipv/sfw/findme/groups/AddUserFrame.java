@@ -19,12 +19,12 @@ import javax.swing.JTextField;
 import it.unipv.sfw.findme.exceptions.ExceptionFrame;
 import it.unipv.sfw.findme.users.general_user.UserGUI;
 import it.unipv.sfw.findme.users.general_user.Users;
-import it.unipv.sfw.findme.users.student.Students;
+import it.unipv.sfw.findme.users.student.Student;
 
 
-public class UserAdderFrame extends JFrame{
+public class AddUserFrame extends JFrame{
 	
-	public UserAdderFrame(JList<Group> list, UserGUI studentsGUI, Users user) {
+	public AddUserFrame(JList<Group> list, UserGUI studentsGUI, Users user) {
 		setSize(400,200);
 		setTitle("Add User");
 		ImageIcon icon=new ImageIcon("Resources/Images/logo4.png");
@@ -74,13 +74,13 @@ class OkListener implements ActionListener{
 	private JTextField emailOrID;
 	private JFrame frame;
 	private UserGUI studentsGUI;
-	private Students user;
+	private Student user;
 	
 	public OkListener(JList<Group> list, JTextField emailOrID, JFrame frame, UserGUI studentsGUI, Users user) {
 		this.list=list;
 		this.emailOrID=emailOrID;
 		this.frame=frame;
-		this.user=(Students)user;
+		this.user=(Student)user;
 		this.studentsGUI=studentsGUI;
 	}
 
@@ -95,7 +95,7 @@ class OkListener implements ActionListener{
 		try {
 			this.list.getSelectedValue().addNewStudent(this.emailOrID.getText(), this.list.getSelectedValue());
 			this.studentsGUI.removePanel();
-			this.studentsGUI.addSecondPanel(new GroupsPanel(this.user, this.studentsGUI));
+			this.studentsGUI.addSecondPanel(new GroupsListPanel(this.user, this.studentsGUI));
 			this.studentsGUI.revalidate();
 			this.studentsGUI.repaint();
 			this.frame.dispose();

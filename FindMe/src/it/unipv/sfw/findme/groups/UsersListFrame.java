@@ -23,13 +23,13 @@ import javax.swing.border.LineBorder;
 
 import it.unipv.sfw.findme.exceptions.ExceptionFrame;
 import it.unipv.sfw.findme.users.general_user.UserGUI;
-import it.unipv.sfw.findme.users.student.Students;
+import it.unipv.sfw.findme.users.student.Student;
 
 public class UsersListFrame extends JFrame{
 	
 
 
-	public UsersListFrame(ArrayList<Students> studentsList, Students user, Group group, UserGUI studentsGUI) {
+	public UsersListFrame(ArrayList<Student> studentsList, Student user, Group group, UserGUI studentsGUI) {
 		
 		
 	JPanel mainPanel=new JPanel();
@@ -48,7 +48,7 @@ public class UsersListFrame extends JFrame{
 	c.insets = new Insets(0,0,10,0);
 	mainPanel.add(title, c);
 	
-	JList<Students> list=new JList(studentsList.toArray());
+	JList<Student> list=new JList(studentsList.toArray());
 	list.setSelectionMode(ListSelectionModel.SINGLE_SELECTION);
 	JScrollPane scroll = new JScrollPane(list);
 	scroll.setBorder(new LineBorder(new Color(145,0,0),2));
@@ -88,7 +88,7 @@ public class UsersListFrame extends JFrame{
 			new ExceptionFrame("User Removed Succesfully!");
 			dispose();
 			studentsGUI.removePanel();
-			studentsGUI.addSecondPanel(new GroupsPanel(user, studentsGUI));
+			studentsGUI.addSecondPanel(new GroupsListPanel(user, studentsGUI));
 			studentsGUI.revalidate();
 			studentsGUI.repaint();
 			

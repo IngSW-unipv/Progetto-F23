@@ -34,11 +34,11 @@ import it.unipv.sfw.findme.users.general_user.UserGUI;
 import it.unipv.sfw.findme.users.general_user.Users;
 
 
-public class RoomChooser extends JFrame {
+public class RoomChooserFrame extends JFrame {
 	
 	private String selectedRoom;
 
-	public RoomChooser(ProfessorNotification notification, Users user, UserGUI frame) {
+	public RoomChooserFrame(ProfessorNotification notification, Users user, UserGUI frame) {
 		JPanel p=new JPanel();
 		try {
 

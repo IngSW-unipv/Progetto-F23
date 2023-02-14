@@ -26,9 +26,9 @@ import it.unipv.sfw.findme.login.LoginGUI;
 import it.unipv.sfw.findme.login.PanelLogo;
 
 
-public class RegisterGUI extends JFrame {
+public class RegistrationGUI extends JFrame {
 
-	public RegisterGUI() {
+	public RegistrationGUI() {
 		openRegisterGUI();
 	}
 
@@ -76,7 +76,7 @@ public class RegisterGUI extends JFrame {
 class MainPanel extends JPanel{
 	private String[] emailTerminations= {"@universitadipavia.it", "@unipv.it"};//creo un vettore contenente gli unici domini accettati
 
-	public MainPanel(RegisterGUI frame) {
+	public MainPanel(RegistrationGUI frame) {
 
 
 		setLayout (new GridBagLayout());//crea una griglia cartesiana, uso le coordinate per mettere i componenti
@@ -269,7 +269,7 @@ class MainPanel extends JPanel{
 				
 				registration.emailVerification(number);
 				
-				VerificationPanel v=new VerificationPanel(number, registration, frame);
+				VerificationFrame v=new VerificationFrame(number, registration, frame);
 				
 			}
 

@@ -6,7 +6,7 @@ import java.util.ArrayList;
 
 
 import it.unipv.sfw.findme.database.DBConnection;
-import it.unipv.sfw.findme.users.student.Students;
+import it.unipv.sfw.findme.users.student.Student;
 
 public class GroupDAO {
 	
@@ -29,7 +29,7 @@ public class GroupDAO {
 	}
 
 
-	public void checkPartecipant(Group group, Students student) throws Exception {
+	public void checkPartecipant(Group group, Student student) throws Exception {
 		Connection conn=DBConnection.connect();
 		String query="select * from allgroups where Group_ID=? and Admin=? and Partecipant=?";
 		PreparedStatement preparedStmt = conn.prepareStatement(query);
@@ -63,7 +63,7 @@ public class GroupDAO {
 		return 0;
 	}
 	
-	public void insertPartecipant(Group group, Students student) throws Exception {
+	public void insertPartecipant(Group group, Student student) throws Exception {
 		Connection conn=DBConnection.connect();
 
 		String query="insert into allgroups (Group_ID, Admin, Partecipant)"+"values (?, ?, ?)";
@@ -90,9 +90,9 @@ public class GroupDAO {
 	}
 	
 	
-	public ArrayList<Students> selectPartecipantsFromGroup(Group group) throws Exception {
+	public ArrayList<Student> selectPartecipantsFromGroup(Group group) throws Exception {
 		
-		ArrayList<Students> students=new ArrayList<Students>();
+		ArrayList<Student> students=new ArrayList<Student>();
 		
 		Connection conn=DBConnection.connect();
 		String query="select * from(select Partecipant from allgroups where Admin=? and Group_ID=?)temp1 join (select * from users)temp2 on temp1.Partecipant=temp2.User_Code";
@@ -101,13 +101,13 @@ public class GroupDAO {
 		preparedStmt.setString(2, group.getGroupID());
 		ResultSet result=preparedStmt.executeQuery();
 		while(result.next()) {
-			students.add(new Students(result.getString(4), result.getNString(5), result.getString(2), null, null, null));
+			students.add(new Student(result.getString(4), result.getNString(5), result.getString(2), null, null, null));
 		}
 		conn.close();
 		return students;
 	}
 	
-	public void deletePartecipant(Group group, Students student) throws Exception {
+	public void deletePartecipant(Group group, Student student) throws Exception {
 		Connection conn=DBConnection.connect();
 		String query="delete from allgroups where Group_ID=? and Admin=? and Partecipant=?";
 		PreparedStatement preparedStmt = conn.prepareStatement(query);

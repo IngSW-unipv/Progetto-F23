@@ -22,14 +22,14 @@ import it.unipv.sfw.findme.database.DBConnection;
 import it.unipv.sfw.findme.exceptions.ExceptionFrame;
 import it.unipv.sfw.findme.users.general_user.UserGUI;
 import it.unipv.sfw.findme.users.general_user.Users;
-import it.unipv.sfw.findme.users.student.Students;
+import it.unipv.sfw.findme.users.student.Student;
 
 
 
-public class GroupsPanel extends JPanel {
+public class GroupsListPanel extends JPanel {
 	private HashMap<String, Group> userSpecificGroups;
 
-	public GroupsPanel(Users user, UserGUI studentsGUI) {
+	public GroupsListPanel(Users user, UserGUI studentsGUI) {
 		this.userSpecificGroups=new HashMap<String, Group>();
 		try {
 
@@ -44,7 +44,7 @@ public class GroupsPanel extends JPanel {
 					this.userSpecificGroups.put(result.getString(1), new Group(result.getString(1), result.getString(2)));
 				}
 				else {
-					this.userSpecificGroups.get(result.getString(1)).addStudent(result.getString(1), new Students(result.getString(6), result.getString(7), result.getString(4), result.getString(8), result.getString(9),result.getString(2)));
+					this.userSpecificGroups.get(result.getString(1)).addStudent(result.getString(1), new Student(result.getString(6), result.getString(7), result.getString(4), result.getString(8), result.getString(9),result.getString(2)));
 				}			
 			}
 
@@ -75,7 +75,7 @@ public class GroupsPanel extends JPanel {
 		createGroup.addActionListener(new ActionListener() {
 			@Override
 			public void actionPerformed(ActionEvent e) {
-				NewGroupNameFrame group=new NewGroupNameFrame(user, studentsGUI);
+				AddGroupNameFrame group=new AddGroupNameFrame(user, studentsGUI);
 			}
 		});
 		c.gridx=1;
@@ -106,7 +106,7 @@ public class GroupsPanel extends JPanel {
 			addUser.addActionListener(new ActionListener() {
 				@Override
 				public void actionPerformed(ActionEvent e) {
-					UserAdderFrame add=new UserAdderFrame(list, studentsGUI, user);
+					AddUserFrame add=new AddUserFrame(list, studentsGUI, user);
 				}
 			});
 			c.gridx=1;
@@ -133,7 +133,7 @@ public class GroupsPanel extends JPanel {
 			deleteGroup.addActionListener(new ActionListener() {
 				@Override
 				public void actionPerformed(ActionEvent e) {
-					Students student=(Students)user;
+					Student student=(Student)user;
 					try {
 					student.removeGroup(list.getSelectedValue());
 					} catch (Exception ex) {
@@ -141,7 +141,7 @@ public class GroupsPanel extends JPanel {
 						return;
 					}
 					studentsGUI.removePanel();
-					studentsGUI.addSecondPanel(new GroupsPanel(user, studentsGUI));
+					studentsGUI.addSecondPanel(new GroupsListPanel(user, studentsGUI));
 					studentsGUI.revalidate();
 					studentsGUI.repaint();
 					new ExceptionFrame("Group Deleted Succesfully");
@@ -163,8 +163,8 @@ public class GroupsPanel extends JPanel {
 			removeUser.addActionListener(new ActionListener() {
 				@Override
 				public void actionPerformed(ActionEvent e) {
-					Students student=(Students)user;
-					ArrayList<Students> partecipants=new ArrayList<Students>();
+					Student student=(Student)user;
+					ArrayList<Student> partecipants=new ArrayList<Student>();
 					GroupDAO dao=new GroupDAO();
 					try {
 					partecipants=dao.selectPartecipantsFromGroup(list.getSelectedValue());

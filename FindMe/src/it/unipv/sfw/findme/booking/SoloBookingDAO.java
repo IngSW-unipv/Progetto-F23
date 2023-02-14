@@ -6,7 +6,7 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.util.ArrayList;
 import it.unipv.sfw.findme.database.DBConnection;
-import it.unipv.sfw.findme.datemanager.DateHolder;
+import it.unipv.sfw.findme.datemanager.DateHolderSingletone;
 import it.unipv.sfw.findme.rooms.BigRooms;
 import it.unipv.sfw.findme.users.general_user.Users;
 
@@ -21,7 +21,7 @@ public class SoloBookingDAO {
 			Connection conn=DBConnection.connect();
 			String query="select * from solo_booking where Date=? and Room=? and Start_Time=? and End_Time=?";
 			PreparedStatement preparedStmt=conn.prepareStatement(query);;
-			preparedStmt.setDate(1, DateHolder.getDate());
+			preparedStmt.setDate(1, DateHolderSingletone.getDate());
 			preparedStmt.setString(2, booking.getRoom().getCode());
 			preparedStmt.setString(3, booking.getStartTime());
 			preparedStmt.setString(4, booking.getEndTime());

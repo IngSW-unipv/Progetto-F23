@@ -22,10 +22,10 @@ import it.unipv.sfw.findme.notifications.LabNotificationDAO;
 import it.unipv.sfw.findme.users.general_user.UserGUI;
 
 
-public class BookingsPanel extends JPanel{
+public class BookingsListPanel extends JPanel{
 
 
-	public BookingsPanel(UserGUI mainGUI) {
+	public BookingsListPanel(UserGUI mainGUI) {
 		setLayout (new GridBagLayout());
 		setBackground(Color.white);
 		GridBagConstraints c=new GridBagConstraints();
@@ -62,7 +62,7 @@ public class BookingsPanel extends JPanel{
 					return;
 				}
 				mainGUI.removePanel();
-				mainGUI.addSecondPanel(new BookingsPanel(mainGUI));
+				mainGUI.addSecondPanel(new BookingsListPanel(mainGUI));
 				mainGUI.revalidate();
 				mainGUI.repaint();
 				new ExceptionFrame("Booking Cancelled Succesfully");
@@ -112,7 +112,7 @@ public class BookingsPanel extends JPanel{
 				groupsDAO.deleteBooking(groupsList.getSelectedValue());
 				labDAO.delete(groupsList.getSelectedValue());
 				mainGUI.removePanel();
-				mainGUI.addSecondPanel(new BookingsPanel(mainGUI));
+				mainGUI.addSecondPanel(new BookingsListPanel(mainGUI));
 				mainGUI.revalidate();
 				mainGUI.repaint();
 				new ExceptionFrame("Booking Cancelled Succesfully");

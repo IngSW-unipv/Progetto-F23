@@ -7,7 +7,7 @@ import java.util.HashMap;
 import it.unipv.sfw.findme.exceptions.ExceptionFrame;
 import it.unipv.sfw.findme.notifications.GroupNotificationDAO;
 import it.unipv.sfw.findme.users.general_user.UsersDAO;
-import it.unipv.sfw.findme.users.student.Students;
+import it.unipv.sfw.findme.users.student.Student;
 
 public class Group {
 
@@ -15,17 +15,17 @@ public class Group {
 	private String groupAdmin;
 	private final int STUDENTSLIMIT=25;
 	private int studentsNumber;
-	private HashMap<String, Students> studentsList;
+	private HashMap<String, Student> studentsList;
 
 	public Group(String ID, String admin) {
-		this.studentsList=new HashMap<String, Students>();
+		this.studentsList=new HashMap<String, Student>();
 		this.groupID=ID;
 		this.groupAdmin=admin;
 		this.studentsNumber++;
 	}
 
 
-	public void addStudent(String ID, Students user){
+	public void addStudent(String ID, Student user){
 		this.studentsList.put(ID, user);
 		this.studentsNumber++;
 	}
@@ -44,10 +44,10 @@ public class Group {
 
 
 		UsersDAO daoUser=new UsersDAO();
-		Students student;
+		Student student;
 
 		try {
-			student=(Students)daoUser.checkUser(new Students(null, null, null, emailOrID, null, null));
+			student=(Student)daoUser.checkUser(new Student(null, null, null, emailOrID, null, null));
 		}
 		catch(Exception e){
 			new ExceptionFrame("Invalid User!");
@@ -78,7 +78,7 @@ public class Group {
 
 	}
 
-	public HashMap<String, Students> getStudentsList(){
+	public HashMap<String, Student> getStudentsList(){
 		return this.studentsList;
 	}
 

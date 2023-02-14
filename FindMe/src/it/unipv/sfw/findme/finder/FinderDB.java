@@ -15,8 +15,8 @@ import java.util.List;
 import java.util.Properties;
 import it.unipv.sfw.findme.booking.Booking;
 import it.unipv.sfw.findme.database.DBConnection;
-import it.unipv.sfw.findme.datemanager.DateHolder;
-import it.unipv.sfw.findme.datemanager.Months;
+import it.unipv.sfw.findme.datemanager.DateHolderSingletone;
+import it.unipv.sfw.findme.datemanager.MonthsSingleton;
 import it.unipv.sfw.findme.datemanager.MyTimer;
 import it.unipv.sfw.findme.rooms.RoomDAO;
 import it.unipv.sfw.findme.rooms.Rooms;
@@ -29,8 +29,8 @@ public class FinderDB {
 	public FinderDB(int year, String month, int day, String start, String end) throws Exception {
 		this.free= new ArrayList<Booking>();
 
-		int monthNumber=Months.getMonths().get(month);
-		DateHolder.DateHolder(day, monthNumber, year);
+		int monthNumber=MonthsSingleton.getMonths().get(month);
+		DateHolderSingletone.DateHolder(day, monthNumber, year);
 		LocalDate myDate = LocalDate.of(year, monthNumber, day);
 		DayOfWeek dayOfWeek=myDate.getDayOfWeek();
 

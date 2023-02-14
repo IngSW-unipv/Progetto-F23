@@ -14,11 +14,11 @@ import javax.swing.JTextField;
 import it.unipv.sfw.findme.exceptions.ExceptionFrame;
 import it.unipv.sfw.findme.users.general_user.UserGUI;
 import it.unipv.sfw.findme.users.general_user.Users;
-import it.unipv.sfw.findme.users.student.Students;
+import it.unipv.sfw.findme.users.student.Student;
 
-public class NewGroupNameFrame  extends JFrame{
+public class AddGroupNameFrame  extends JFrame{
 
-	public NewGroupNameFrame(Users user, UserGUI studentsGUI) {
+	public AddGroupNameFrame(Users user, UserGUI studentsGUI) {
 		setSize(400,200);
 		setTitle("Insert Group Name");
 
@@ -63,13 +63,13 @@ public class NewGroupNameFrame  extends JFrame{
 
 
 class ConfirmListener implements ActionListener{
-	private Students user;
+	private Student user;
 	private JTextField name;
 	private JFrame frame;
 	private UserGUI studentsGUI;
 
 	public ConfirmListener(Users user, JTextField name, JFrame frame, UserGUI studentsGUI) {
-		this.user=(Students)user;
+		this.user=(Student)user;
 		this.name=name;
 		this.frame=frame;
 		this.studentsGUI=studentsGUI;
@@ -86,7 +86,7 @@ class ConfirmListener implements ActionListener{
 
 		this.user.createGroup(this.name.getText());
 		this.studentsGUI.removePanel();
-		this.studentsGUI.addSecondPanel(new GroupsPanel(this.user, this.studentsGUI));
+		this.studentsGUI.addSecondPanel(new GroupsListPanel(this.user, this.studentsGUI));
 		this.studentsGUI.revalidate();
 		this.studentsGUI.repaint();
 		frame.dispose();

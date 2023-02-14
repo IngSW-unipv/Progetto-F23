@@ -7,7 +7,7 @@ import java.sql.ResultSet;
 import java.util.Properties;
 import it.unipv.sfw.findme.database.DBConnection;
 import it.unipv.sfw.findme.exceptions.ExceptionFrame;
-import it.unipv.sfw.findme.users.student.Students;
+import it.unipv.sfw.findme.users.student.Student;
 
 public class UsersDAO {
 	
@@ -91,7 +91,7 @@ public class UsersDAO {
 			preparedStmt.setString(2, user.getEmail());
 			ResultSet result=preparedStmt.executeQuery();
 			result.next();
-			return new Students(null, null, result.getString(1), result.getString(1), null, null);
+			return new Student(null, null, result.getString(1), result.getString(1), null, null);
 	}	
 
 }

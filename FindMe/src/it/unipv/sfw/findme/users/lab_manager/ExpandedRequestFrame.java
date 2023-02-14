@@ -9,9 +9,9 @@ import it.unipv.sfw.findme.notifications.LabNotification;
 
 
 
-public class ExpandedRequest extends JFrame {
+public class ExpandedRequestFrame extends JFrame {
 	
-	public ExpandedRequest(LabNotification notification) {
+	public ExpandedRequestFrame(LabNotification notification) {
 		JPanel container=new JPanel();
 		container.setBackground(Color.white);
 		JPanel header=new JPanel();

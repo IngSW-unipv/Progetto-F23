@@ -10,7 +10,7 @@ import it.unipv.sfw.findme.booking.Booking;
 import it.unipv.sfw.findme.booking.RoomsBookingDAO;
 import it.unipv.sfw.findme.booking.SoloBookingDAO;
 import it.unipv.sfw.findme.database.DBConnection;
-import it.unipv.sfw.findme.datemanager.DateHolder;
+import it.unipv.sfw.findme.datemanager.DateHolderSingletone;
 import it.unipv.sfw.findme.exceptions.ExceptionFrame;
 import it.unipv.sfw.findme.groups.Group;
 import it.unipv.sfw.findme.groups.GroupDAO;
@@ -38,11 +38,11 @@ public class BigRooms extends Rooms{
 					+ "(select count(*) from allgroups where Group_ID in (select Group_ID from rooms_booking where rooms_booking.Date=? and Room=? and Start_Time=? and End_Time=?))\r\n"
 					+ "+(select count(*) from solo_booking where solo_booking.Date=? and Room=? and Start_Time=? and End_Time=?) as sum";
 			PreparedStatement preparedStmt = conn.prepareStatement(query);
-			preparedStmt.setDate(1, Date.valueOf(DateHolder.getYear()+"-"+DateHolder.getMonth()+"-"+DateHolder.getDay()));
+			preparedStmt.setDate(1, Date.valueOf(DateHolderSingletone.getYear()+"-"+DateHolderSingletone.getMonth()+"-"+DateHolderSingletone.getDay()));
 			preparedStmt.setString(2, this.code);
 			preparedStmt.setString(3, booking.getStartTime());
 			preparedStmt.setString(4, booking.getEndTime());
-			preparedStmt.setDate(5, Date.valueOf(DateHolder.getYear()+"-"+DateHolder.getMonth()+"-"+DateHolder.getDay()));
+			preparedStmt.setDate(5, Date.valueOf(DateHolderSingletone.getYear()+"-"+DateHolderSingletone.getMonth()+"-"+DateHolderSingletone.getDay()));
 			preparedStmt.setString(6, this.code);
 			preparedStmt.setString(7, booking.getStartTime());
 			preparedStmt.setString(8, booking.getEndTime());

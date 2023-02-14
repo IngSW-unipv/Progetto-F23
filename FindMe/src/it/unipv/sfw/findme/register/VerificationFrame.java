@@ -17,8 +17,8 @@ import it.unipv.sfw.findme.exceptions.ExceptionFrame;
 import it.unipv.sfw.findme.login.LoginGUI;
 
 
-public class VerificationPanel{
-	public VerificationPanel(int number, Registration registration, RegisterGUI frame) {
+public class VerificationFrame{
+	public VerificationFrame(int number, Registration registration, RegistrationGUI frame) {
 		JFrame mainFrame=new JFrame();
 		JPanel mainPanel=new JPanel();
 
@@ -85,7 +85,7 @@ public class VerificationPanel{
 
 class VerificationSuccess extends JFrame{
 
-	public VerificationSuccess(RegisterGUI mainRegisterFrame){
+	public VerificationSuccess(RegistrationGUI mainRegisterFrame){
 		JPanel p=new JPanel();
 		p.setBackground(Color.WHITE);
 		
@@ -117,8 +117,8 @@ class VerificationSuccess extends JFrame{
 
 class FinalButton implements ActionListener{
 	private VerificationSuccess f;
-	private RegisterGUI mainRegisterFrame;
-	public FinalButton(VerificationSuccess f, RegisterGUI mainRegisterFrame) {
+	private RegistrationGUI mainRegisterFrame;
+	public FinalButton(VerificationSuccess f, RegistrationGUI mainRegisterFrame) {
 		this.f=f;
 		this.mainRegisterFrame=mainRegisterFrame;
 	}

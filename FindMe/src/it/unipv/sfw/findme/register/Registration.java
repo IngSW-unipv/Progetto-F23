@@ -9,7 +9,7 @@ import it.unipv.sfw.findme.database.DBConnection;
 import it.unipv.sfw.findme.email.EmailTemplate;
 import it.unipv.sfw.findme.enums.UserType;
 import it.unipv.sfw.findme.users.general_user.UsersDAO;
-import it.unipv.sfw.findme.users.student.Students;
+import it.unipv.sfw.findme.users.student.Student;
 
 public class Registration {
 
@@ -41,7 +41,7 @@ public class Registration {
 
 	public void register() {
 		UsersDAO dao=new UsersDAO();
-		dao.insertUser(new Students(name, lastName, idNumber, emailString, passwordString, userType));
+		dao.insertUser(new Student(name, lastName, idNumber, emailString, passwordString, userType));
 	}
 
 	public void namesCheck() throws IllegalArgumentException{

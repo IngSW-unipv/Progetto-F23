@@ -58,12 +58,13 @@ public class Professor extends Users{
 
 	@Override
 	public JButton checkNotifications() {
+		deleteOldNotifications();
 		ProfessorNotificationDAO daoProfNotification=new ProfessorNotificationDAO();
 		SwapNotificationDAO daoProfSwap=new SwapNotificationDAO();
 		boolean profRequests=daoProfNotification.checkNotification(new ProfessorNotification(null, null, this.ID, null, null, null));
 		boolean swapRequests=daoProfSwap.checkNotification(new SwapNotification(null, this.ID, null, null, null, null, "false"));
 		boolean reminders=daoProfSwap.checkNotification(new SwapNotification(null, this.ID, null, null, null, null, "true"));
-		deleteOldNotifications();
+		
 		
 			if (profRequests==true || swapRequests==true) {
 				ImageIcon notificationIcon=new ImageIcon("Resources/Images/bell-icon-active.png");

@@ -7,6 +7,7 @@ import java.util.HashMap;
 import java.util.LinkedList;
 import java.util.List;
 import it.unipv.sfw.findme.model.booking.Booking;
+import it.unipv.sfw.findme.model.exceptions.ExceptionFrame;
 import it.unipv.sfw.findme.model.users.general_user.Users;
 import it.unipv.sfw.findme.view.finder.FinderMainPanel;
 import it.unipv.sfw.findme.view.finder.filters.FilterCheckBox;
@@ -16,6 +17,7 @@ public class FiltersListener implements ActionListener{
 	private FinderMainPanel panel;
 	private List<Booking> freeRooms;
 	private List<Booking> filteredRooms;
+	private List<Booking> filterTemporary;
 	private HashMap<String, List<Booking>> allFiltered;
 	private LinkedList<FilterCheckBox> allFilters;
 	private UserGUI frame;
@@ -32,16 +34,16 @@ public class FiltersListener implements ActionListener{
 	public void actionPerformed(ActionEvent e) {
 		this.freeRooms=this.panel.getFreeRooms();
 		this.allFiltered.clear();
-
+		this.filterTemporary=this.panel.getFreeRooms();
 		for(FilterCheckBox singleFilter: allFilters) {
 			if(singleFilter.isSelected()==true) {
-				this.allFiltered.put(singleFilter.getLabel(), singleFilter.filter(freeRooms, singleFilter));
+				filterTemporary = singleFilter.filter(filterTemporary, singleFilter);
+				
+				
 			}
 		}
-
-		for(HashMap.Entry<String, List<Booking>> list: this.allFiltered.entrySet()) {
-			this.filteredRooms.addAll(list.getValue());
-		}
+		filteredRooms = filterTemporary;
+	
 		this.panel.removeAll();
 		this.panel.revalidate();
 		this.panel.repaint();
@@ -52,7 +54,11 @@ public class FiltersListener implements ActionListener{
 		this.panel.revalidate();
 		this.panel.repaint();
 
-
+		if(this.filteredRooms.size()== 0) {
+			new ExceptionFrame("No room found with required features");
+		}
 
 	}
 }
+
+

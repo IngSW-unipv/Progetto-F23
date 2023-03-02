@@ -161,8 +161,7 @@ public class FinderDB {
 		}
 
 		if(myDate.compareTo(start.toLocalDate())>0 && myDate.compareTo(end.toLocalDate())>0) {
-			
-			throw new Exception();
+						throw new Exception();
 		}
 		conn.close();
 

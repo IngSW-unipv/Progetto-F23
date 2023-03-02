@@ -10,6 +10,9 @@ import it.unipv.sfw.findme.controller.finder.filters.FiltersListener;
 import it.unipv.sfw.findme.model.booking.Booking;
 import it.unipv.sfw.findme.model.users.general_user.Users;
 import it.unipv.sfw.findme.view.finder.filters.FilterCheckBox;
+import it.unipv.sfw.findme.view.finder.filters.FilterRoomDisabledAccess;
+import it.unipv.sfw.findme.view.finder.filters.FilterRoomLim;
+import it.unipv.sfw.findme.view.finder.filters.FilterRoomOutlets;
 import it.unipv.sfw.findme.view.finder.filters.FilterRoomType;
 import it.unipv.sfw.findme.view.finder.filters.FilterSeatsNumber;
 import it.unipv.sfw.findme.view.users.general_user.UserGUI;
@@ -35,6 +38,10 @@ public class FinderMainPanel extends JPanel{
 
 
 		JList<Booking> list=new JList(freeRooms.toArray());
+	
+		
+		
+
 		list.setForeground(Color.black);
 		JScrollPane listScroller = new JScrollPane(list);
 		listScroller.setBorder(new LineBorder(new Color(145,0,0),2));
@@ -81,7 +88,39 @@ public class FinderMainPanel extends JPanel{
 		c.gridx=2;
 		c.gridy=1;
 		add(filterLab, c);
+		
+		FilterRoomLim filterLim=new FilterRoomLim();
+		filterLim.setLabel("Lim");
+		filterLim.setIdentifier("LIM");
+		this.allFilters.add(filterLim);
+		filterLim.setFont(new Font("Comic Sans MS", Font.BOLD,15));
+		filterLim.setForeground(new Color(145,0,0));
+		filterLim.setBackground(Color.white);
+		c.gridx=0;
+		c.gridy=3;
+		add(filterLim, c);
 
+		FilterRoomOutlets filterOutlets =new FilterRoomOutlets();
+		filterOutlets.setLabel("Outletls");
+		filterOutlets.setIdentifier("OUTLETS");
+		this.allFilters.add(filterOutlets);
+		filterOutlets.setFont(new Font("Comic Sans MS", Font.BOLD,15));
+		filterOutlets.setForeground(new Color(145,0,0));
+		filterOutlets.setBackground(Color.white);
+		c.gridx=1;
+		c.gridy=3;
+		add(filterOutlets, c);
+		
+		FilterRoomDisabledAccess filterDisabledAccess =new FilterRoomDisabledAccess();
+		filterDisabledAccess.setLabel("DisabledAccess");
+		filterDisabledAccess.setIdentifier("DISABLEDACCESS");
+		this.allFilters.add(filterDisabledAccess);
+		filterDisabledAccess.setFont(new Font("Comic Sans MS", Font.BOLD,15));
+		filterDisabledAccess.setForeground(new Color(145,0,0));
+		filterDisabledAccess.setBackground(Color.white);
+		c.gridx=2;
+		c.gridy=3;
+		add(filterDisabledAccess, c);
 
 		c.anchor = GridBagConstraints.CENTER;
 		JButton filterButton=new JButton("Filter");
@@ -109,10 +148,10 @@ public class FinderMainPanel extends JPanel{
 		bookButton.setBorderPainted(false);
 
 		c.gridx=1;
-		c.gridy=2;
+		c.gridy=4;
 		c.insets = new Insets(20,0,0,0);
 		add(bookButton, c);
-
+	
 		revalidate();
 		repaint();
 	}

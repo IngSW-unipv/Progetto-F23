@@ -31,8 +31,8 @@ import it.unipv.sfw.findme.view.login.PanelLogo;
 
 public class RegistrationGUI extends JFrame {
 
-	public RegistrationGUI() {
-		openRegisterGUI();
+	public RegistrationGUI() { // il costruttore richiama il metodo onpenregitergui che apre la finestra di registrazione utente 
+		openRegisterGUI(); 
 	}
 
 	public void openRegisterGUI() {
@@ -59,7 +59,7 @@ public class RegistrationGUI extends JFrame {
 		PanelLogo panellogo=new PanelLogo();
 		panellogo.setBounds(0, 0, 200, 200);
 
-		MainPanel p=new MainPanel(this);
+		MainPanel p=new MainPanel(this); 
 		p.setBounds(10, 20, screenWidth, screenHeight);
 		pane.add(panellogo, new Integer(1));
 		pane.add(p, new Integer(2));
@@ -76,7 +76,7 @@ public class RegistrationGUI extends JFrame {
 	}
 }
 
-class MainPanel extends JPanel{
+class MainPanel extends JPanel{ // contiene tutti i campi per la registrazione dell'utente 
 	private String[] emailTerminations= {"@universitadipavia.it", "@unipv.it"};//creo un vettore contenente gli unici domini accettati
 
 	public MainPanel(RegistrationGUI frame) {

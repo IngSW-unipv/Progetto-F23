@@ -76,7 +76,7 @@ public class FinderDB {
 
 					preparedStmt.setString(1, start);
 					preparedStmt.setString(2, end);
-					preparedStmt.setDate(3, Date.valueOf(myDate));
+					preparedStmt.setString(3, dayOfWeek.toString());
 					preparedStmt.setString(4, start);
 					preparedStmt.setString(5, end);
 					preparedStmt.setDate(6, Date.valueOf(myDate));

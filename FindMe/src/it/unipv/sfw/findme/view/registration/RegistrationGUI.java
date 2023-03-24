@@ -31,7 +31,7 @@ import it.unipv.sfw.findme.view.login.PanelLogo;
 
 public class RegistrationGUI extends JFrame {
 
-	public RegistrationGUI() { // il costruttore richiama il metodo onpenregitergui che apre la finestra di registrazione utente 
+	public RegistrationGUI() {  
 		openRegisterGUI(); 
 	}
 
@@ -39,7 +39,7 @@ public class RegistrationGUI extends JFrame {
 		Toolkit kit = Toolkit.getDefaultToolkit();
 
 		Dimension screenSize = kit.getScreenSize();
-		int screenHeight = screenSize.height;//finestra delle dimensioni dello schermo
+		int screenHeight = screenSize.height;
 		int screenWidth = screenSize.width;
 
 		ImageIcon Icon=new ImageIcon("Resources/Images/background_v2.jpeg");
@@ -76,13 +76,13 @@ public class RegistrationGUI extends JFrame {
 	}
 }
 
-class MainPanel extends JPanel{ // contiene tutti i campi per la registrazione dell'utente 
-	private String[] emailTerminations= {"@universitadipavia.it", "@unipv.it"};//creo un vettore contenente gli unici domini accettati
+class MainPanel extends JPanel{ 
+	private String[] emailTerminations= {"@universitadipavia.it", "@unipv.it"};
 
 	public MainPanel(RegistrationGUI frame) {
 
 
-		setLayout (new GridBagLayout());//crea una griglia cartesiana, uso le coordinate per mettere i componenti
+		setLayout (new GridBagLayout());
 		GridBagConstraints c=new GridBagConstraints();
 		setBackground(new Color (0,0,0,0));
 
@@ -208,7 +208,7 @@ class MainPanel extends JPanel{ // contiene tutti i campi per la registrazione d
 		add(userTypeField, c);
 		//
 		c.anchor = GridBagConstraints.CENTER;
-		JComboBox<UserType> userTypeSelect= new JComboBox<UserType>(UserType.values());//menu a tendina a cui passo la enum
+		JComboBox<UserType> userTypeSelect= new JComboBox<UserType>(UserType.values());
 		userTypeSelect.addActionListener(new ActionListener() {
 
 			@Override

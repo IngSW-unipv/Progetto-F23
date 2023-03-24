@@ -37,8 +37,8 @@ import it.unipv.sfw.findme.view.users.professor.ProfessorNotificationPanel;
 
 public class Professor extends Users{
 
-	public Professor(String name, String lastName, String ID, String email, String password, String type) {
-		super(name, lastName, ID, email, password, type);
+	public Professor( String Name, String lastName, String ID, String email, String password, String type) {
+		super(Name, lastName, ID, email, password, type);
 	}
 	
 	

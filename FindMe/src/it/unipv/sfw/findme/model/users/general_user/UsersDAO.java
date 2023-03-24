@@ -4,6 +4,7 @@ import java.io.FileInputStream;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
+import java.util.ArrayList;
 import java.util.Properties;
 
 import it.unipv.sfw.findme.model.database.DBConnection;
@@ -94,5 +95,42 @@ public class UsersDAO {
 			result.next();
 			return new Student(null, null, result.getString(1), result.getString(1), null, null);
 	}	
+	
+	public ArrayList<String> selectOrderedProf() {
+		
+		try {
+			
+			ArrayList<String> l = new ArrayList<String>();
+			
+			Connection conn=DBConnection.connect();
+			String query="select User_Code,Name,Last_Name,COALESCE(c,0) AS numprenotazioni from users\r\n"
+					+ "left join\r\n"
+					+ "(select User_ID, COUNT(*) as c from solo_booking GROUP BY User_ID) t\r\n"
+					+ "on User_Code=t.User_ID\r\n"
+					+ " where User_Type='PROFESSOR' \r\n"
+					+ " ORDER BY numprenotazioni DESC";
+			
+			PreparedStatement preparedStmt = conn.prepareStatement(query);
+			ResultSet result=preparedStmt.executeQuery();
+			
+			Integer cont=0;
+			
+			while(result.next())
+			{
+				cont++;
+				l.add(cont+") Codice:"+result.getString(1)+" Nome:"+result.getString(2)+" Cognome:"+result.getString(3)+" Num Prenotazioni:"+result.getString(4));
+
+			}
+			
+			return l;
+			
+		} catch(Exception e) {
+			e.printStackTrace();
+		}
+		
+		return null;
+		
+		
+	}
 
 }

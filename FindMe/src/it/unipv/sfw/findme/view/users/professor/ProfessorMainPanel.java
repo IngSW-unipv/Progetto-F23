@@ -8,11 +8,14 @@ import java.awt.Image;
 import java.awt.Insets;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.util.ArrayList;
+
 import javax.swing.ImageIcon;
 import javax.swing.JButton;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
 
+import it.unipv.sfw.findme.model.users.general_user.UsersDAO;
 import it.unipv.sfw.findme.model.users.professor.Professor;
 import it.unipv.sfw.findme.view.login.LoginGUI;
 import it.unipv.sfw.findme.view.users.general_user.UserGUI;
@@ -113,6 +116,30 @@ public class ProfessorMainPanel extends JPanel{
 		c.gridy=4;
 		c.insets= new Insets(70,20,10,0);
 		add(LogButton, c);
+		
+		JButton listabutton = new JButton("Lista Prof");
+		listabutton.setFont(new Font("Comic Sans MS", Font.PLAIN,15));
+		listabutton.setBackground(Color.white);
+		listabutton.setForeground(new Color(145,0,0));
+		listabutton.setOpaque(true);
+		listabutton.setBorderPainted(false);
+		c.gridx=1;
+		c.gridy=4;
+		add(listabutton,c);
+		listabutton.addActionListener(new ActionListener() {
+
+			@Override
+			public void actionPerformed(ActionEvent e) {
+				mainGUI.removePanel();
+				UsersDAO dao=new UsersDAO();
+				mainGUI.addSecondPanel(new ProfListView(dao.selectOrderedProf()));
+				mainGUI.revalidate();
+				mainGUI.repaint();
+				
+			}
+			
+		});
+		
 	}
 
 }
